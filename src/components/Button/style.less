@@ -1,0 +1,496 @@
+// 变量定义
+@primary-color: #1677ff;
+@primary-hover-color: #4096ff;
+@primary-active-color: #0958d9;
+@danger-color: #ff4d4f;
+@danger-hover-color: #ff7875;
+@danger-active-color: #d9363e;
+@text-color: rgba(0, 0, 0, 0.88);
+@disabled-text-color: rgba(0, 0, 0, 0.25);
+@border-color: #d9d9d9;
+@border-radius: 4px;
+@transition-duration: 0.3s;
+
+// 尺寸变量
+@btn-height-lg: 40px;
+@btn-height-md: 32px;
+@btn-height-sm: 24px;
+@btn-padding-lg: 0 16px;
+@btn-padding-md: 0 15px;
+@btn-padding-sm: 0 7px;
+@font-size-lg: 16px;
+@font-size-md: 14px;
+@font-size-sm: 12px;
+
+// 混合器
+.button-size(@height, @padding, @font-size) {
+  height: @height;
+  padding: @padding;
+  font-size: @font-size;
+  
+  // 确保圆形按钮的宽度与高度一致
+  &.sui-button-shape-circle {
+    width: @height;
+    min-width: @height;
+    padding: 0;
+  }
+}
+
+.button-variant(@color, @background, @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  
+  &:hover {
+    color: @color;
+    background-color: lighten(@background, 5%);
+    border-color: lighten(@border, 5%);
+  }
+  
+  &:active {
+    color: @color;
+    background-color: darken(@background, 5%);
+    border-color: darken(@border, 5%);
+  }
+}
+
+// 波纹动画
+@keyframes ripple-effect {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+// 旋转动画
+@keyframes sui-button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 基础按钮样式
+.sui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: @font-size-md;
+  font-weight: 400;
+  border-radius: @border-radius;
+  padding: @btn-padding-md;
+  cursor: pointer;
+  transition: all @transition-duration;
+  border: 1px solid transparent;
+  height: @btn-height-md;
+  outline: none;
+  position: relative;
+  user-select: none;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  overflow: hidden; // 为波纹效果添加溢出隐藏
+  
+  // 移除点击时的黑色边框
+  &:focus {
+    outline: none;
+  }
+  
+  // 按钮形状
+  &-shape-default {
+    border-radius: @border-radius;
+  }
+  
+  &-shape-circle {
+    border-radius: 50%;
+    padding: 0;
+    text-align: center;
+  }
+  
+  &-shape-round {
+    border-radius: 9999px;
+  }
+  
+  // 波纹效果
+  .ripple {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    pointer-events: none;
+  }
+  
+  // 内部容器样式，用于图标和文字的垂直居中对齐
+  &-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  // 内容样式
+  &-content {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  // 图标样式
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+  
+  &-loading-icon {
+    display: inline-flex;
+    align-items: center;
+    animation: sui-button-spin 1s infinite linear;
+    margin-right: 8px;
+  }
+  
+  // 当图标在右侧时的样式
+  &-icon + &-content,
+  &-loading-icon + &-content {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+  
+  &-content + &-icon,
+  &-content + &-loading-icon {
+    margin-left: 8px;
+    margin-right: 0;
+  }
+  
+  // 当按钮只有图标没有文本时的样式 - 使用类选择器实现更好的兼容性
+  &-icon-only {
+    .sui-button-inner {
+      justify-content: center;
+    }
+    
+    .sui-button-icon,
+    .sui-button-loading-icon {
+      margin: 0;
+    }
+  }
+  
+  // 确保圆形按钮中的图标居中
+  &-shape-circle {
+    .sui-button-inner {
+      justify-content: center;
+    }
+    
+    .sui-button-icon,
+    .sui-button-loading-icon {
+      margin: 0;
+    }
+  }
+  
+  // 块级按钮
+  &-block {
+    display: flex;
+    width: 100%;
+  }
+  
+  // 按钮尺寸
+  &-large {
+    .button-size(@btn-height-lg, @btn-padding-lg, @font-size-lg);
+  }
+  
+  &-middle {
+    .button-size(@btn-height-md, @btn-padding-md, @font-size-md);
+  }
+  
+  &-small {
+    .button-size(@btn-height-sm, @btn-padding-sm, @font-size-sm);
+  }
+  
+  // 按钮类型
+  &-default {
+    background-color: #fff;
+    border-color: @border-color;
+    color: @text-color;
+    
+    &:hover {
+      border-color: @primary-color;
+      color: @primary-color;
+      background-color: #fff;
+    }
+    
+    &:active {
+      border-color: @primary-active-color;
+      color: @primary-active-color;
+    }
+  }
+  
+  &-primary {
+    background-color: @primary-color;
+    border-color: @primary-color;
+    color: #fff;
+    
+    &:hover {
+      background-color: @primary-hover-color;
+      border-color: @primary-hover-color;
+    }
+    
+    &:active {
+      background-color: @primary-active-color;
+      border-color: @primary-active-color;
+    }
+  }
+  
+  &-dashed {
+    background-color: #fff;
+    border-style: dashed;
+    border-color: @border-color;
+    color: @text-color;
+    
+    &:hover {
+      border-color: @primary-color;
+      color: @primary-color;
+    }
+    
+    &:active {
+      border-color: @primary-active-color;
+      color: @primary-active-color;
+    }
+  }
+  
+  &-text {
+    background-color: transparent;
+    border-color: transparent;
+    color: @text-color;
+    box-shadow: none;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.06);
+      color: @text-color;
+    }
+    
+    &:active {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  &-link {
+    background-color: transparent;
+    border-color: transparent;
+    color: @primary-color;
+    box-shadow: none;
+    
+    &:hover {
+      color: @primary-hover-color;
+    }
+    
+    &:active {
+      color: @primary-active-color;
+    }
+  }
+  
+  // 危险按钮
+  &-danger {
+    color: @danger-color;
+    border-color: @danger-color;
+    background-color: #fff;
+    
+    &:hover {
+      color: #fff;
+      border-color: @danger-color;
+      background-color: @danger-color;
+    }
+    
+    &:active {
+      color: #fff;
+      border-color: @danger-active-color;
+      background-color: @danger-active-color;
+    }
+  }
+  
+  &-primary&-danger {
+    color: #fff;
+    border-color: @danger-color;
+    background-color: @danger-color;
+    
+    &:hover {
+      color: #fff;
+      border-color: @danger-hover-color;
+      background-color: @danger-hover-color;
+    }
+    
+    &:active {
+      color: #fff;
+      border-color: @danger-active-color;
+      background-color: @danger-active-color;
+    }
+  }
+  
+  &-text&-danger,
+  &-link&-danger {
+    color: @danger-color;
+    border-color: transparent;
+    background-color: transparent;
+  }
+  
+  &-text&-danger:hover {
+    color: @danger-color;
+    background-color: rgba(255, 77, 79, 0.1);
+  }
+  
+  &-link&-danger:hover {
+    color: @danger-hover-color;
+  }
+  
+  // 幽灵按钮
+  &-ghost {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    
+    &.sui-button-primary {
+      color: @primary-color;
+      border-color: @primary-color;
+    }
+    
+    &.sui-button-danger {
+      color: @danger-color;
+      border-color: @danger-color;
+    }
+  }
+  
+  // 禁用状态
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+    
+    &:hover,
+    &:active {
+      border-color: @border-color;
+      color: @disabled-text-color;
+    }
+  }
+  
+  &-primary&-disabled,
+  &-primary&-disabled:hover,
+  &-primary&-disabled:active,
+  &-danger&-disabled,
+  &-danger&-disabled:hover,
+  &-danger&-disabled:active {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-color: @border-color;
+    color: @disabled-text-color;
+  }
+  
+  &-text&-disabled,
+  &-link&-disabled {
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  // 加载状态
+  &-loading {
+    opacity: 0.8;
+    cursor: default;
+  }
+}
+
+// 按钮组样式
+.sui-button-group {
+  display: inline-flex;
+  
+  .sui-button {
+    border-radius: 0;
+    margin-right: -1px;
+    position: relative;
+    z-index: 1;
+    
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 2;
+    }
+    
+    // 保持按钮组中的按钮形状一致，但根据按钮大小调整圆角
+    &:first-child {
+      border-top-left-radius: @border-radius;
+      border-bottom-left-radius: @border-radius;
+    }
+    
+    &:last-child {
+      border-top-right-radius: @border-radius;
+      border-bottom-right-radius: @border-radius;
+      margin-right: 0;
+    }
+    
+    // 当按钮是圆形或圆角时，在按钮组中重置其样式
+    &.sui-button-shape-circle,
+    &.sui-button-shape-round {
+      border-radius: 0;
+      
+      &:first-child {
+        border-top-left-radius: @border-radius;
+        border-bottom-left-radius: @border-radius;
+      }
+      
+      &:last-child {
+        border-top-right-radius: @border-radius;
+        border-bottom-right-radius: @border-radius;
+      }
+    }
+  }
+  
+  // 垂直按钮组
+  &-vertical {
+    flex-direction: column;
+    
+    .sui-button {
+      margin-right: 0;
+      margin-bottom: -1px;
+      
+      &:first-child {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: @border-radius;
+        border-top-left-radius: @border-radius;
+      }
+      
+      &:last-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: @border-radius;
+        border-bottom-right-radius: @border-radius;
+        margin-bottom: 0;
+      }
+      
+      // 当按钮是圆形或圆角时，在垂直按钮组中重置其样式
+      &.sui-button-shape-circle,
+      &.sui-button-shape-round {
+        border-radius: 0;
+        
+        &:first-child {
+          border-top-left-radius: @border-radius;
+          border-top-right-radius: @border-radius;
+        }
+        
+        &:last-child {
+          border-bottom-left-radius: @border-radius;
+          border-bottom-right-radius: @border-radius;
+        }
+      }
+    }
+  }
+  
+  .sui-button-primary {
+    &:not(:first-child):not(:last-child) {
+      border-left-color: @primary-hover-color;
+      border-right-color: @primary-hover-color;
+    }
+    
+    &:not(:last-child) {
+      border-right-color: @primary-hover-color;
+    }
+    
+    &:not(:first-child) {
+      border-left-color: @primary-hover-color;
+    }
+  }
+}
