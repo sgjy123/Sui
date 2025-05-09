@@ -185,7 +185,7 @@ const Tooltip = (props) => {
     if (!visible && destroyTooltipOnHide) return null;
 
     // 如果不可见，不渲染内容，提高性能
-    // if (!visible) return null;
+    if (!visible) return null;
 
     const tooltipClass = `sui-tooltip-content sui-tooltip-${placement} ${visible ? 'visible' : ''} ${overlayClassName}`;
     const tooltipStyle = {
