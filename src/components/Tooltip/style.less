@@ -1,0 +1,76 @@
+.sui-tooltip {
+  &-content {
+    position: absolute;
+    z-index: 1070;
+    visibility: hidden;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 250px; // 限制最大宽度，防止过长
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+
+  &-inner {
+    padding: 8px 12px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    word-wrap: break-word; // 确保长文本自动折行
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  &-arrow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    transform: rotate(0deg);
+    z-index: -1;
+  }
+
+  // 箭头位置 - 上方
+  &-top &-arrow {
+    bottom: -8px;
+    left: 50%;
+    margin-left: -4px;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  }
+
+  // 箭头位置 - 下方
+  &-bottom &-arrow {
+    top: -8px;
+    left: 50%;
+    margin-left: -4px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  // 箭头位置 - 左侧
+  &-left &-arrow {
+    right: -8px;
+    top: 50%;
+    margin-top: -4px;
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+    transform: rotate(180deg);
+  }
+
+  // 箭头位置 - 右侧
+  &-right &-arrow {
+    left: -8px;
+    top: 50%;
+    margin-top: -4px;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+    transform: rotate(180deg);
+  }
+
+  // 动画效果
+  &-content {
+    opacity: 0;
+    transition: all .3s linear;
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

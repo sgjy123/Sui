@@ -33,6 +33,9 @@ const DocIndex = () => {
               <li>
                 <Link to="/doc/timeline">时间轴</Link>
               </li>
+              <li>
+                <Link to="/doc/tooltip">Tooltip 文字提示</Link>
+              </li>
             </ul>
           </div>
         </aside>
