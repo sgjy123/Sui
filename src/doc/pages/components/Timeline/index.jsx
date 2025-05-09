@@ -15,7 +15,7 @@ const TimelineDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import Timeline from '../components/Timeline';`}
+                    {`import Timeline from 'Sui';`}
                 </pre>
             </section>
 
@@ -161,7 +161,7 @@ const TimelineDoc = () => {
 
             <section>
                 <h2>API</h2>
-                
+
                 <h3>Timeline</h3>
                 <table>
                     <thead>

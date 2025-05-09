@@ -11,8 +11,6 @@ const Icon = ({ name, theme, size, fill, className, ...props }) => {
     return null;
   }
 
-  console.log(IconComponent,'IconComponent');
-
   return (
     <IconComponent
       theme={theme}

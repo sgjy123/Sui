@@ -14,7 +14,7 @@ const ButtonDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import Button from '../components/Button';`}
+                    {`import {Button} from 'Sui';`}
                 </pre>
             </section>
 

@@ -14,7 +14,7 @@ const TooltipDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import Tooltip from '../components/Tooltip';`}
+                    {`import Tooltip from 'Sui';`}
                 </pre>
             </section>
 

@@ -15,7 +15,7 @@ const DividerDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import Divider from '../components/Divider';`}
+                    {`import {Divider} from 'Sui';`}
                 </pre>
             </section>
 
