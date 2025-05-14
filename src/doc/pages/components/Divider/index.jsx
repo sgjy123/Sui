@@ -1,6 +1,5 @@
 import React from 'react';
-import Divider from '../../../../components/Divider/index.jsx';
-import Button from '../../../../components/Button/index.jsx';
+import {Button, Divider} from 'components';
 
 const DividerDoc = () => {
     return (

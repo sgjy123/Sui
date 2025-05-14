@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from '../../../../components/Tooltip/index.jsx';
+import {Tooltip} from 'components';
 
 const TooltipDoc = () => {
     return (

@@ -6,6 +6,7 @@ import IconDoc from './pages/components/Icon';
 import DividerDoc from './pages/components/Divider';
 import TimelineDoc from './pages/components/Timeline';
 import TooltipDoc from './pages/components/Tooltip';
+import MenuDemo from './pages/components/Menu';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -16,6 +17,7 @@ const Doc = () => {
                     <Route path="divider" element={<DividerDoc/>}/>
                     <Route path="timeline" element={<TimelineDoc/>}/>
                     <Route path="tooltip" element={<TooltipDoc/>}/>
+                    <Route path="menu" element={<MenuDemo/>}/>
                     {/* 其他子路由可以在这里添加 */}
                 </Route>
             </Routes>

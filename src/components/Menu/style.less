@@ -1,0 +1,387 @@
+// 变量定义
+@primary-color: #1677ff;
+@primary-1: #e6f4ff;
+@disabled-color: rgba(0, 0, 0, 0.25);
+@error-color: #ff4d4f;
+@error-1: #fff2f0;
+@text-color-secondary: rgba(0, 0, 0, 0.45);
+@border-color-base: #d9d9d9;
+@menu-dark-bg: #001529;
+@menu-dark-color: rgba(255, 255, 255, 0.65);
+@menu-dark-submenu-bg: #000c17;
+@menu-dark-disabled-color: rgba(255, 255, 255, 0.25);
+
+// 菜单基础样式
+.sui-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+
+  // 菜单项基础样式
+  .sui-menu-item,
+  .sui-submenu-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 16px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: color 0.3s, background 0.3s, border-color 0.3s;
+
+    &:hover {
+      color: @primary-color;
+    }
+
+    .sui-menu-item-icon {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .sui-menu-item-content {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  // 选中状态
+  .sui-menu-item-selected {
+    color: @primary-color;
+    background-color: @primary-1;
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-right: 3px solid @primary-color;
+    }
+  }
+
+  // 禁用状态
+  .sui-menu-item-disabled,
+  .sui-submenu-disabled .sui-submenu-title {
+    color: @disabled-color;
+    cursor: not-allowed;
+
+    &:hover {
+      color: @disabled-color;
+      background-color: transparent;
+    }
+  }
+
+  // 危险状态
+  .sui-menu-item-danger {
+    color: @error-color;
+
+    &:hover {
+      color: @error-color;
+    }
+
+    &.sui-menu-item-selected {
+      color: @error-color;
+      background-color: @error-1;
+
+      &::after {
+        border-right-color: @error-color;
+      }
+    }
+  }
+}
+
+// 垂直菜单
+.sui-menu-vertical {
+  width: 100%;
+  border-right: 1px solid @border-color-base;
+
+  .sui-submenu-arrow {
+    position: absolute;
+    right: 16px;
+  }
+
+  &.sui-menu-inline-collapsed {
+    width: 80px;
+
+    > .sui-menu-item,
+    > .sui-submenu > .sui-submenu-title {
+      padding: 0 calc(50% - 16px / 2);
+      text-overflow: clip;
+
+      /*.sui-menu-item-content {
+        display: none;
+      }*/
+
+      .sui-menu-item-icon {
+        margin-right: 0;
+        font-size: 18px;
+      }
+    }
+
+    .sui-menu-item-collapsed {
+      padding: 0 calc(50% - 16px / 2);
+
+      .sui-menu-item-icon {
+        margin-right: 0;
+        font-size: 18px;
+      }
+    }
+
+    .sui-submenu {
+      position: relative;
+
+      > .sui-submenu-title-collapsed {
+        padding: 0 calc(50% - 16px / 2);
+        height: 40px;
+        line-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: @primary-color;
+        }
+
+        .sui-menu-item-icon {
+          margin-right: 0;
+          font-size: 18px;
+        }
+      }
+
+      .sui-submenu-popup-wrapper {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        margin-left: 4px;
+        min-width: 160px;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        z-index: 1050;
+
+        // 确保子菜单内容显示完整
+        overflow: visible;
+
+        .sui-submenu-popup-title {
+          padding: 0 16px;
+          color: @text-color-secondary;
+          font-size: 14px;
+          line-height: 40px;
+          height: 40px;
+          transition: all 0.3s;
+        }
+
+        .sui-submenu-popup {
+          padding: 4px 0;
+
+          .sui-menu-item {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 16px;
+
+            &:hover {
+              color: @primary-color;
+              background-color: @primary-1;
+            }
+          }
+
+          // 支持多级子菜单
+          .sui-submenu {
+            position: relative;
+            list-style: none;
+
+            .sui-submenu-title {
+              padding: 0 16px;
+              height: 40px;
+              line-height: 40px;
+              display: flex;
+              align-items: center;
+
+              .sui-submenu-arrow {
+                position: absolute;
+                right: 16px;
+              }
+            }
+
+            .sui-submenu-popup-wrapper {
+              left: 100% !important;
+              top: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 内联菜单
+.sui-menu-inline {
+  width: 100%;
+  border-right: 1px solid @border-color-base;
+
+  .sui-menu-item::after {
+    transform: scaleY(1);
+    opacity: 1;
+    transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .sui-submenu-content {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .sui-submenu-arrow {
+    position: absolute;
+    right: 16px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+  }
+
+  .sui-submenu-open > .sui-submenu-title .sui-submenu-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+// 水平菜单
+.sui-menu-horizontal {
+  display: flex;
+  border-bottom: 1px solid @border-color-base;
+
+  > .sui-menu-item,
+  > .sui-submenu {
+    margin-right: 20px;
+    border-bottom: 2px solid transparent;
+  }
+
+  > .sui-menu-item-selected,
+  > .sui-submenu-selected {
+    border-bottom: 2px solid @primary-color;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .sui-submenu {
+    position: relative;
+
+    .sui-submenu-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      margin: 0;
+      padding: 5px 0;
+      background-color: #fff;
+      box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+      z-index: 1050;
+      border-radius: 2px;
+    }
+
+    .sui-submenu-arrow {
+      margin-left: 6px;
+    }
+  }
+}
+
+// 菜单项分组
+.sui-menu-item-group {
+  .sui-menu-item-group-title {
+    padding: 8px 16px;
+    color: @text-color-secondary;
+    font-size: 12px;
+  }
+
+  .sui-menu-item-group-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// 暗色主题
+.sui-menu-dark {
+  background-color: @menu-dark-bg;
+  color: @menu-dark-color;
+
+  .sui-menu-item:hover,
+  .sui-submenu-title:hover {
+    color: #fff;
+  }
+
+  .sui-menu-item-selected {
+    color: #fff;
+    background-color: @primary-color;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .sui-menu-item-disabled,
+  .sui-submenu-disabled .sui-submenu-title {
+    color: @menu-dark-disabled-color;
+
+    &:hover {
+      color: @menu-dark-disabled-color;
+    }
+  }
+
+  .sui-submenu-content {
+    background-color: @menu-dark-submenu-bg;
+  }
+
+  .sui-menu-item-group-title {
+    color: @menu-dark-color;
+  }
+
+  // 暗色主题下的折叠菜单样式
+  &.sui-menu-inline-collapsed {
+    .sui-submenu-popup-wrapper {
+      background-color: @menu-dark-submenu-bg;
+      .sui-submenu-popup {
+        padding: 0 !important;
+      }
+      .sui-submenu-popup-title {
+        background-color: @menu-dark-submenu-bg;
+        color: @menu-dark-color !important;
+      }
+
+      .sui-menu-item {
+        background-color: @menu-dark-submenu-bg;
+        color: @menu-dark-color !important;
+      }
+
+      .sui-menu-item:hover {
+        color: #fff !important;
+        background-color: @menu-dark-submenu-bg !important;
+      }
+
+      .sui-menu-item-content {
+        display: inline-block;
+      }
+
+      .sui-menu-item-selected {
+        color: #fff;
+        background-color: @primary-color;
+        &:hover {
+          background-color: @primary-color !important;
+        }
+      }
+      .sui-submenu .sui-submenu-title {
+        background-color: @menu-dark-submenu-bg;
+        color: @menu-dark-color !important;
+      }
+    }
+  }
+}

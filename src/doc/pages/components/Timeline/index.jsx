@@ -1,6 +1,5 @@
 import React from 'react';
-import Timeline from '../../../../components/Timeline/index.jsx';
-import Divider from '../../../../components/Divider/index.jsx';
+import {Timeline, Divider } from 'components';
 
 const TimelineDoc = () => {
     return (

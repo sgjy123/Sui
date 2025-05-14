@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../../../components/Button/index.jsx';
+import {Button} from 'components';
 
 const ButtonDoc = () => {
     return (

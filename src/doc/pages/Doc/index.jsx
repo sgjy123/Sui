@@ -36,6 +36,9 @@ const DocIndex = () => {
               <li>
                 <Link to="/doc/tooltip">Tooltip 文字提示</Link>
               </li>
+              <li>
+                <Link to="/doc/menu">Menu 导航菜单</Link>
+              </li>
             </ul>
           </div>
         </aside>
