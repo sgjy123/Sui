@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './style.less';
 
@@ -37,7 +37,7 @@ const Tooltip = (props) => {
   }, [propsVisible]);
 
   // 处理tooltip显示状态变化
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (onVisibleChange) {
       onVisibleChange(visible);
     }
@@ -68,14 +68,45 @@ const Tooltip = (props) => {
     };
   }, []);
 
+  // Helper function to check if an element is a scroll container
+  const isScrollContainer = (ele) => {
+    const style = getComputedStyle(ele);
+    return (
+      ['scroll', 'auto', 'hidden'].includes(style.overflowY) || ['scroll', 'auto', 'hidden'].includes(style.overflowX)
+    );
+  };
+
+  // Helper function to collect scrolling parent elements
+  const collectScrollParents = (ele) => {
+    const scrollList = [];
+    let current = ele?.parentElement;
+
+    while (current && current !== document.body) {
+      if (isScrollContainer(current)) {
+        scrollList.push(current);
+      }
+      current = current.parentElement;
+    }
+    return scrollList;
+  };
+
   // 计算tooltip位置
   const updatePosition = () => {
+    console.log(childRef.current, 'childRef.current');
     if (!childRef.current || !tooltipRef.current) return;
 
     const childRect = childRef.current.getBoundingClientRect();
     const tooltipRect = tooltipRef.current.getBoundingClientRect();
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Get scroll offsets from window and all scrollable parents
+    let totalScrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    let totalScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    const scrollParents = collectScrollParents(childRef.current);
+    scrollParents.forEach((parent) => {
+      totalScrollLeft += parent.scrollLeft;
+      totalScrollTop += parent.scrollTop;
+    });
 
     let left = 0;
     let top = 0;
@@ -83,41 +114,41 @@ const Tooltip = (props) => {
 
     switch (placement) {
       case 'top':
-        left = childRect.left + (childRect.width - tooltipRect.width) / 2 + scrollLeft;
-        top = childRect.top - tooltipRect.height - gap + scrollTop;
+        left = childRect.left + (childRect.width - tooltipRect.width) / 2 + totalScrollLeft;
+        top = childRect.top - tooltipRect.height - gap + totalScrollTop;
         break;
       case 'bottom':
-        left = childRect.left + (childRect.width - tooltipRect.width) / 2 + scrollLeft;
-        top = childRect.top + childRect.height + gap + scrollTop;
+        left = childRect.left + (childRect.width - tooltipRect.width) / 2 + totalScrollLeft;
+        top = childRect.top + childRect.height + gap + totalScrollTop;
         break;
       case 'left':
-        left = childRect.left - tooltipRect.width - gap + scrollLeft;
-        top = childRect.top + (childRect.height - tooltipRect.height) / 2 + scrollTop;
+        left = childRect.left - tooltipRect.width - gap + totalScrollLeft;
+        top = childRect.top + (childRect.height - tooltipRect.height) / 2 + totalScrollTop;
         break;
       case 'right':
-        left = childRect.left + childRect.width + gap + scrollLeft;
-        top = childRect.top + (childRect.height - tooltipRect.height) / 2 + scrollTop;
+        left = childRect.left + childRect.width + gap + totalScrollLeft;
+        top = childRect.top + (childRect.height - tooltipRect.height) / 2 + totalScrollTop;
         break;
       default:
         break;
     }
 
-    // 防止tooltip超出视口
+    // Prevent tooltip from going out of viewport (basic check, can be improved for scroll containers)
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
 
-    // 水平方向调整
-    if (left < 0) {
-      left = 0;
-    } else if (left + tooltipRect.width > viewportWidth) {
-      left = viewportWidth - tooltipRect.width;
+    // Horizontal adjustment
+    if (left < totalScrollLeft) {
+      left = totalScrollLeft;
+    } else if (left + tooltipRect.width > viewportWidth + totalScrollLeft) {
+      left = viewportWidth + totalScrollLeft - tooltipRect.width;
     }
 
-    // 垂直方向调整
-    if (top < 0) {
-      top = 0;
-    } else if (top + tooltipRect.height > viewportHeight + scrollTop) {
-      top = viewportHeight + scrollTop - tooltipRect.height;
+    // Vertical adjustment
+    if (top < totalScrollTop) {
+      top = totalScrollTop;
+    } else if (top + tooltipRect.height > viewportHeight + totalScrollTop) {
+      top = viewportHeight + totalScrollTop - tooltipRect.height;
     }
 
     setPosition({ left, top });
@@ -165,8 +196,10 @@ const Tooltip = (props) => {
     if (trigger === 'click' && visible) {
       const handleOutsideClick = (e) => {
         if (
-          childRef.current && !childRef.current.contains(e.target) &&
-          tooltipRef.current && !tooltipRef.current.contains(e.target)
+          childRef.current &&
+          !childRef.current.contains(e.target) &&
+          tooltipRef.current &&
+          !tooltipRef.current.contains(e.target)
         ) {
           setVisible(false);
         }
@@ -207,9 +240,7 @@ const Tooltip = (props) => {
         onMouseEnter={handleTooltipMouseEnter}
         onMouseLeave={handleTooltipMouseLeave}
       >
-        <div className="sui-tooltip-inner">
-          {typeof title === 'function' ? title() : title}
-        </div>
+        <div className="sui-tooltip-inner">{typeof title === 'function' ? title() : title}</div>
         {arrow && <div className={`sui-tooltip-arrow sui-tooltip-arrow-${placement}`} style={arrowStyle} />}
       </div>
     );
@@ -217,7 +248,7 @@ const Tooltip = (props) => {
     // 使用 Portal 渲染到指定容器或 body
     const container = getPopupContainer ? getPopupContainer(childRef.current) : document.body;
     return ReactDOM.createPortal(tooltipContent, container);
-  }
+  };
   // 克隆子元素并添加事件处理
   const child = React.Children.only(children);
   const childProps = {
@@ -242,10 +273,10 @@ const Tooltip = (props) => {
   }
 
   return (
-      <>
-        {React.cloneElement(child, childProps)}
-        {renderTooltip()}
-      </>
+    <>
+      {React.cloneElement(child, childProps)}
+      {renderTooltip()}
+    </>
   );
 };
 export default Tooltip;

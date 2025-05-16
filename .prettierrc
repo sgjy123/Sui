@@ -1,0 +1,8 @@
+{
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "proseWrap": "never",
+  "importOrder": ["^(react|react-dom)$", "^([a-z]|@[a-z])", "", ".*"]
+}
