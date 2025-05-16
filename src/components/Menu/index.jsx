@@ -131,14 +131,8 @@ const SubMenu = ({ children, title, icon, disabled = false, index, className = '
     if (inlineCollapsed) {
       const timer = setTimeout(() => {
         setVisible(false);
-      }, 1000);
+      }, 200);
       setCloseTimer(timer);
-    }
-  };
-
-  const handleSubMenuContentMouseEnter = () => {
-    if (inlineCollapsed) {
-      clearTimeout(closeTimer);
     }
   };
 
@@ -218,9 +212,7 @@ const SubMenu = ({ children, title, icon, disabled = false, index, className = '
         onMouseLeave={handleMouseLeave}
         {...props}
       >
-        <div
-          className="sui-submenu-title-collapsed"
-        >
+        <div className="sui-submenu-title-collapsed">
           {icon && (
             <span className="sui-menu-item-icon">
               <Icon name={icon} />
