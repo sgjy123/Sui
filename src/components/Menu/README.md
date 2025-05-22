@@ -38,6 +38,14 @@ const HorizontalMenu = () => (
     </SubMenu>
   </Menu>
 );
+
+// 无边框菜单
+const NoBorderMenu = () => (
+  <Menu mode="horizontal" showBorder={false}>
+    <Item key="1">无边框菜单</Item>
+    <Item key="2">选项2</Item>
+  </Menu>
+);
 ```
 
 ## API
@@ -55,6 +63,7 @@ const HorizontalMenu = () => (
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | false |
 | multiple | 是否允许多选 | boolean | false |
+| showBorder | 是否显示菜单边框 | boolean | true |
 | onSelect | 被选中时调用 | function(selectedKey) | - |
 | onOpenChange | SubMenu 展开/关闭的回调 | function(openKeys) | - |
 

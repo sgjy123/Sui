@@ -4,6 +4,7 @@ import Divider from './Divider';
 import Timeline from './Timeline';
 import Tooltip from './Tooltip';
 import Menu from './Menu';
+import Space from './Space';
 
 export {
   Button,
@@ -11,5 +12,6 @@ export {
   Divider,
   Timeline,
   Tooltip,
-  Menu
+  Menu,
+  Space
 };

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Menu from '../../../../components/Menu';
-import Icon from '../../../../components/Icon';
+import {Icon, Menu} from 'components';
 import './style.less';
 
 const { SubMenu, Item, ItemGroup } = Menu;

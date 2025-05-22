@@ -12,6 +12,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 48px;
       z-index: 1000;
       
@@ -61,27 +62,6 @@
             font-size: 14px;
             margin: 8px 0;
           }
-          
-          ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            
-            li {
-              a {
-                display: block;
-                padding: 8px 24px;
-                color: #314659;
-                text-decoration: none;
-                font-size: 14px;
-                
-                &:hover {
-                  color: #1890ff;
-                  background: #e6f7ff;
-                }
-              }
-            }
-          }
         }
       }
       
@@ -93,3 +73,24 @@
       }
     }
   }
+
+.code-block {
+  margin: 16px 0;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+
+  pre {
+    margin: 0;
+    padding: 16px;
+    overflow: auto;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  code {
+    font-family: inherit;
+  }
+}

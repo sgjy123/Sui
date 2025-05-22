@@ -12,6 +12,7 @@ const MenuContext = createContext({
   openKeys: [],
   inlineIndent: 24,
   inlineCollapsed: false,
+  showBorder: true,
   onSelect: () => {},
   onOpenChange: () => {},
 });
@@ -263,6 +264,7 @@ const Menu = ({
   inlineIndent = 24,
   inlineCollapsed = false,
   multiple = false,
+  showBorder = true,
   className = '',
   onSelect,
   onOpenChange,
@@ -318,6 +320,7 @@ const Menu = ({
     `sui-menu-${actualMode}`,
     `sui-menu-${theme}`,
     inlineCollapsed ? 'sui-menu-inline-collapsed' : '',
+    !showBorder ? 'sui-menu-no-border' : '',
     className,
   ]
     .filter(Boolean)
@@ -332,6 +335,7 @@ const Menu = ({
         openKeys,
         inlineIndent,
         inlineCollapsed,
+        showBorder,
         onSelect: handleSelect,
         onOpenChange: handleOpenChange,
       }}
@@ -354,6 +358,7 @@ Menu.propTypes = {
   inlineIndent: PropTypes.number,
   inlineCollapsed: PropTypes.bool,
   multiple: PropTypes.bool,
+  showBorder: PropTypes.bool,
   className: PropTypes.string,
   onSelect: PropTypes.func,
   onOpenChange: PropTypes.func,
