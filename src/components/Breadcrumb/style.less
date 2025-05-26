@@ -1,0 +1,161 @@
+// 颜色变量
+@text-color: rgba(0, 0, 0, 0.88);
+@text-color-secondary: rgba(0, 0, 0, 0.45);
+@primary-color: #1677ff;
+@transition-duration-base: 0.2s;
+
+// 字体变量
+@font-size-base: 14px;
+@font-size-lg: 16px;
+@font-size-sm: 12px;
+@line-height-base: 1.5714285714285714;
+
+.sui-breadcrumb {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: @text-color;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  list-style: none;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    color: @text-color-secondary;
+
+    &:last-child {
+      color: @text-color;
+    }
+  }
+
+  &-separator {
+    margin: 0 8px;
+    color: @text-color-secondary;
+  }
+
+  &-link {
+    color: @text-color-secondary;
+    transition: color @transition-duration-base;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+
+  &-text {
+    color: @text-color;
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    margin-right: 4px;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+
+    svg {
+      vertical-align: -0.125em;
+    }
+  }
+
+  &-title {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  
+  // 垂直布局
+  &-vertical {
+    .sui-breadcrumb-item-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+    }
+    
+    .sui-breadcrumb-icon {
+      margin-right: 0;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+    
+    .sui-breadcrumb-title {
+      font-size: 12px;
+    }
+    
+    .sui-breadcrumb-separator {
+      align-self: center;
+    }
+  }
+
+  // 紧凑型
+  &-compact &-separator {
+    margin: 0 4px;
+  }
+
+  // 大型
+  &-large {
+    font-size: @font-size-lg;
+    
+    .sui-breadcrumb-icon {
+      font-size: 18px;
+    }
+    
+    &.sui-breadcrumb-vertical {
+      .sui-breadcrumb-icon {
+        font-size: 20px;
+      }
+      
+      .sui-breadcrumb-title {
+        font-size: 14px;
+      }
+    }
+  }
+
+  // 小型
+  &-small {
+    font-size: @font-size-sm;
+    
+    .sui-breadcrumb-icon {
+      font-size: 12px;
+    }
+    
+    &.sui-breadcrumb-vertical {
+      .sui-breadcrumb-icon {
+        font-size: 14px;
+      }
+      
+      .sui-breadcrumb-title {
+        font-size: 10px;
+      }
+    }
+  }
+
+  // 可点击项悬停效果
+  &-item:not(:last-child) &-link:hover {
+    color: @primary-color;
+  }
+
+  // 禁用状态
+  &-item-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    .sui-breadcrumb-link {
+      pointer-events: none;
+    }
+  }
+} 

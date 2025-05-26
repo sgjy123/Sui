@@ -5,6 +5,8 @@ import Timeline from './Timeline';
 import Tooltip from './Tooltip';
 import Menu from './Menu';
 import Space from './Space';
+import Grid from './Grid';
+import Breadcrumb from './Breadcrumb';
 
 export {
   Button,
@@ -13,5 +15,7 @@ export {
   Timeline,
   Tooltip,
   Menu,
-  Space
+  Space,
+  Grid,
+  Breadcrumb,
 };

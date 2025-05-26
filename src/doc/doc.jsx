@@ -8,6 +8,8 @@ import TimelineDoc from './pages/components/Timeline';
 import TooltipDoc from './pages/components/Tooltip';
 import MenuDemo from './pages/components/Menu';
 import SpaceDemo from './pages/components/Space';
+import GridDemo from './pages/components/Grid';
+import BreadcrumbDemo from './pages/components/Breadcrumb';
 
 const Doc = () => {
     return (
@@ -21,6 +23,8 @@ const Doc = () => {
                     <Route path="tooltip" element={<TooltipDoc/>}/>
                     <Route path="menu" element={<MenuDemo/>}/>
                     <Route path="space" element={<SpaceDemo/>}/>
+                    <Route path="grid" element={<GridDemo/>}/>
+                    <Route path="breadcrumb" element={<BreadcrumbDemo/>}/>
                     {/* 其他子路由可以在这里添加 */}
                 </Route>
             </Routes>
