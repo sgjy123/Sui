@@ -29,6 +29,7 @@ const DocIndex = () => {
     { key: '/doc/menu', label: 'Menu 导航菜单' },
     { key: '/doc/space', label: 'Space 间距' },
     { key: '/doc/grid', label: 'Grid 栅格' },
+    { key: '/doc/empty', label: 'Empty 空状态' },
     { key: '/doc/breadcrumb', label: 'Breadcrumb 面包屑' }
   ];
 

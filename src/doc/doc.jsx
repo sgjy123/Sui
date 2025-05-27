@@ -10,6 +10,7 @@ import MenuDemo from './pages/components/Menu';
 import SpaceDemo from './pages/components/Space';
 import GridDemo from './pages/components/Grid';
 import BreadcrumbDemo from './pages/components/Breadcrumb';
+import EmptyDoc from './pages/components/Empty';
 
 const Doc = () => {
     return (
@@ -25,6 +26,7 @@ const Doc = () => {
                     <Route path="space" element={<SpaceDemo/>}/>
                     <Route path="grid" element={<GridDemo/>}/>
                     <Route path="breadcrumb" element={<BreadcrumbDemo/>}/>
+                    <Route path="empty" element={<EmptyDoc/>}/>
                     {/* 其他子路由可以在这里添加 */}
                 </Route>
             </Routes>

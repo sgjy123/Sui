@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '../../../../components';
+import { Grid } from 'components';
 import CodeBlock from '../../Doc/CodeBlock';
 
 const GridDemo = () => {
