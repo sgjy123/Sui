@@ -13,6 +13,8 @@ import BreadcrumbDemo from './pages/components/Breadcrumb';
 import EmptyDoc from './pages/components/Empty';
 import TagDoc from './pages/components/Tag';
 import MessageDoc from './pages/components/Message';
+import AlertDoc from './pages/components/Alert';
+import DrawerDoc from './pages/components/Drawer';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -30,7 +32,8 @@ const Doc = () => {
                     <Route path="empty" element={<EmptyDoc/>}/>
                     <Route path="tag" element={<TagDoc/>}/>
                     <Route path="message" element={<MessageDoc/>}/>
-                    {/* 其他子路由可以在这里添加 */}
+                    <Route path="alert" element={<AlertDoc/>}/>
+                    <Route path="drawer" element={<DrawerDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -10,7 +10,8 @@ import Breadcrumb from './Breadcrumb';
 import Empty from './Empty';
 import Tag from './Tag';
 import message from './Message';
-
+import Alert from './Alert';
+import Drawer from './Drawer';
 
 export {
   Button,
@@ -25,4 +26,6 @@ export {
   Empty,
   Tag,
   message,
+  Alert,
+  Drawer,
 };

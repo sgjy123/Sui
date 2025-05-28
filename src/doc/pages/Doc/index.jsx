@@ -32,7 +32,9 @@ const DocIndex = () => {
     { key: '/doc/empty', label: 'Empty 空状态' },
     { key: '/doc/breadcrumb', label: 'Breadcrumb 面包屑' },
     { key: '/doc/tag', label: 'Tag 标签' },
-    { key: '/doc/message', label: 'Message 全局提示' }
+    { key: '/doc/message', label: 'Message 全局提示' },
+    { key: '/doc/alert', label: 'Alert 警告提示' },
+    { key: '/doc/drawer', label: 'Drawer 抽屉' }
   ];
 
   return (
