@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button, Divider} from 'components';
+import { Divider, Button, Space } from 'components';
+import './style.less';
 
 const DividerDoc = () => {
     return (
@@ -14,7 +15,7 @@ const DividerDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import {Divider} from 'Sui';`}
+                    {`import { Divider } from 'Sui';`}
                 </pre>
             </section>
 
@@ -64,19 +65,23 @@ const DividerDoc = () => {
                 <div className="example">
                     <h3>垂直分割线</h3>
                     <p>使用 type="vertical" 设置为行内的垂直分割线。</p>
-                    <div className="demo" style={{ display: 'flex', alignItems: 'center' }}>
-                        <span>文本</span>
-                        <Divider type="vertical" />
-                        <Button type="link">链接</Button>
-                        <Divider type="vertical" />
-                        <Button type="primary">按钮</Button>
+                    <div className="demo">
+                        <Space>
+                            <span>文本</span>
+                            <Divider type="vertical" />
+                            <Button type="link">链接</Button>
+                            <Divider type="vertical" />
+                            <Button type="primary">按钮</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<span>文本</span>
-<Divider type="vertical" />
-<Button type="link">链接</Button>
-<Divider type="vertical" />
-<Button type="primary">按钮</Button>`}
+                        {`<Space>
+  <span>文本</span>
+  <Divider type="vertical" />
+  <Button type="link">链接</Button>
+  <Divider type="vertical" />
+  <Button type="primary">按钮</Button>
+</Space>`}
                     </pre>
                 </div>
 

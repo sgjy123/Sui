@@ -1,0 +1,130 @@
+.grid-doc {
+  padding: 24px;
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  section {
+    margin-bottom: 32px;
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: rgba(0, 0, 0, 0.65);
+    }
+  }
+
+  .example {
+    margin-bottom: 32px;
+    border: 1px solid #f0f0f0;
+    border-radius: 2px;
+
+    h3 {
+      margin: 0;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    p {
+      margin: 0;
+      padding: 16px;
+      color: rgba(0, 0, 0, 0.65);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .demo {
+      padding: 16px;
+      border-bottom: 1px solid #f0f0f0;
+
+      .sui-row {
+        margin-bottom: 16px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .grid-content {
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 4px;
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+        box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(24, 144, 255, 0.2);
+        }
+      }
+
+      // 为不同的列添加不同的背景色
+      .sui-col:nth-child(1) .grid-content {
+        background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+      }
+      .sui-col:nth-child(2) .grid-content {
+        background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+      }
+      .sui-col:nth-child(3) .grid-content {
+        background: linear-gradient(135deg, #722ed1 0%, #531dab 100%);
+      }
+      .sui-col:nth-child(4) .grid-content {
+        background: linear-gradient(135deg, #eb2f96 0%, #c41d7f 100%);
+      }
+      .sui-col:nth-child(5) .grid-content {
+        background: linear-gradient(135deg, #fa8c16 0%, #d46b08 100%);
+      }
+      .sui-col:nth-child(6) .grid-content {
+        background: linear-gradient(135deg, #13c2c2 0%, #08979c 100%);
+      }
+    }
+
+    .code {
+      margin: 0;
+      padding: 16px;
+      background: #fafafa;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    th {
+      font-weight: 500;
+      background: #fafafa;
+    }
+
+    code {
+      padding: 2px 4px;
+      background: #f5f5f5;
+      border-radius: 3px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    }
+  }
+} 

@@ -23,14 +23,15 @@ const DocIndex = () => {
   const sideMenuItems = [
     { key: '/doc/button', label: 'Button 按钮' },
     { key: '/doc/icon', label: 'Icon 图标' },
-    { key: '/doc/divider', label: '分割线' },
-    { key: '/doc/timeline', label: '时间轴' },
+    { key: '/doc/divider', label: 'Divider 分割线' },
+    { key: '/doc/timeline', label: 'Timeline 时间轴' },
     { key: '/doc/tooltip', label: 'Tooltip 文字提示' },
     { key: '/doc/menu', label: 'Menu 导航菜单' },
     { key: '/doc/space', label: 'Space 间距' },
     { key: '/doc/grid', label: 'Grid 栅格' },
     { key: '/doc/empty', label: 'Empty 空状态' },
-    { key: '/doc/breadcrumb', label: 'Breadcrumb 面包屑' }
+    { key: '/doc/breadcrumb', label: 'Breadcrumb 面包屑' },
+    { key: '/doc/tag', label: 'Tag 标签' }
   ];
 
   return (

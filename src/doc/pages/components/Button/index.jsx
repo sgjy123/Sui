@@ -1,10 +1,11 @@
 import React from 'react';
-import {Button} from 'components';
+import { Button, Space } from 'components';
+import './style.less';
 
 const ButtonDoc = () => {
     return (
         <div className="button-doc">
-            <h1>Button 按钮组件</h1>
+            <h1>Button 按钮</h1>
 
             <section>
                 <h2>介绍</h2>
@@ -14,7 +15,7 @@ const ButtonDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import {Button} from 'Sui';`}
+                    {`import { Button, Space } from 'Sui';`}
                 </pre>
             </section>
 
@@ -25,18 +26,24 @@ const ButtonDoc = () => {
                     <h3>按钮类型</h3>
                     <p>按钮有五种类型：默认按钮、主要按钮、虚线按钮、文本按钮和链接按钮。</p>
                     <div className="demo">
-                        <Button type="default">默认按钮</Button>
-                        <Button type="primary">主要按钮</Button>
-                        <Button type="dashed">虚线按钮</Button>
-                        <Button type="text">文本按钮</Button>
-                        <Button type="link">链接按钮</Button>
+                        <Space>
+                            <Button type="default">默认按钮</Button>
+                            <Button type="primary">主要按钮</Button>
+                            <Button type="dashed">虚线按钮</Button>
+                            <Button type="text">文本按钮</Button>
+                            <Button type="link">链接按钮</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button type="default">默认按钮</Button>
-<Button type="primary">主要按钮</Button>
-<Button type="dashed">虚线按钮</Button>
-<Button type="text">文本按钮</Button>
-<Button type="link">链接按钮</Button>`}
+                        {`import { Button, Space } from 'Sui';
+
+<Space>
+  <Button type="default">默认按钮</Button>
+  <Button type="primary">主要按钮</Button>
+  <Button type="dashed">虚线按钮</Button>
+  <Button type="text">文本按钮</Button>
+  <Button type="link">链接按钮</Button>
+</Space>`}
                     </pre>
                 </div>
 
@@ -44,14 +51,18 @@ const ButtonDoc = () => {
                     <h3>按钮尺寸</h3>
                     <p>按钮有大、中、小三种尺寸。</p>
                     <div className="demo">
-                        <Button size="large">大按钮</Button>
-                        <Button size="middle">中按钮</Button>
-                        <Button size="small">小按钮</Button>
+                        <Space>
+                            <Button size="large">大按钮</Button>
+                            <Button size="middle">中按钮</Button>
+                            <Button size="small">小按钮</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button size="large">大按钮</Button>
-<Button size="middle">中按钮</Button>
-<Button size="small">小按钮</Button>`}
+                        {`<Space>
+  <Button size="large">大按钮</Button>
+  <Button size="middle">中按钮</Button>
+  <Button size="small">小按钮</Button>
+</Space>`}
                     </pre>
                 </div>
 
@@ -59,12 +70,16 @@ const ButtonDoc = () => {
                     <h3>禁用状态</h3>
                     <p>按钮的禁用状态。</p>
                     <div className="demo">
-                        <Button disabled>默认按钮(禁用)</Button>
-                        <Button type="primary" disabled>主要按钮(禁用)</Button>
+                        <Space>
+                            <Button disabled>默认按钮(禁用)</Button>
+                            <Button type="primary" disabled>主要按钮(禁用)</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button disabled>默认按钮(禁用)</Button>
-<Button type="primary" disabled>主要按钮(禁用)</Button>`}
+                        {`<Space>
+  <Button disabled>默认按钮(禁用)</Button>
+  <Button type="primary" disabled>主要按钮(禁用)</Button>
+</Space>`}
                     </pre>
                 </div>
 
@@ -72,12 +87,16 @@ const ButtonDoc = () => {
                     <h3>加载状态</h3>
                     <p>添加 `loading` 属性即可让按钮处于加载状态。</p>
                     <div className="demo">
-                        <Button loading>加载中</Button>
-                        <Button type="primary" loading>加载中</Button>
+                        <Space>
+                            <Button loading>加载中</Button>
+                            <Button type="primary" loading>加载中</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button loading>加载中</Button>
-<Button type="primary" loading>加载中</Button>`}
+                        {`<Space>
+  <Button loading>加载中</Button>
+  <Button type="primary" loading>加载中</Button>
+</Space>`}
                     </pre>
                 </div>
 
@@ -85,14 +104,18 @@ const ButtonDoc = () => {
                     <h3>图标按钮</h3>
                     <p>当需要在 Button 内嵌入图标时，可以设置 `icon` 属性。</p>
                     <div className="demo">
-                        <Button icon="Plus">添加</Button>
-                        <Button icon="Delete" type="primary">删除</Button>
-                        <Button icon="Download" iconPosition="end">下载</Button>
+                        <Space>
+                            <Button icon="Plus">添加</Button>
+                            <Button icon="Delete" type="primary">删除</Button>
+                            <Button icon="Download" iconPosition="end">下载</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button icon="Plus">添加</Button>
-<Button icon="Delete" type="primary">删除</Button>
-<Button icon="Download" iconPosition="end">下载</Button>`}
+                        {`<Space>
+  <Button icon="Plus">添加</Button>
+  <Button icon="Delete" type="primary">删除</Button>
+  <Button icon="Download" iconPosition="end">下载</Button>
+</Space>`}
                     </pre>
                 </div>
 
@@ -100,16 +123,22 @@ const ButtonDoc = () => {
                     <h3>按钮形状</h3>
                     <p>按钮可以设置不同的形状。</p>
                     <div className="demo">
-                        <Button shape="default">默认按钮</Button>
-                        <Button shape="circle" size='large'>1</Button>
-                        <Button shape="circle">1</Button>
-                        <Button shape="circle" icon='Download' />
-                        <Button shape="round" type="primary">圆角按钮</Button>
+                        <Space>
+                            <Button shape="default">默认按钮</Button>
+                            <Button shape="circle" size='large'>1</Button>
+                            <Button shape="circle">1</Button>
+                            <Button shape="circle" icon='Download' />
+                            <Button shape="round" type="primary">圆角按钮</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button shape="default">默认按钮</Button>
-<Button shape="circle" icon="Plus" />
-<Button shape="round" type="primary">圆角按钮</Button>`}
+                        {`<Space>
+  <Button shape="default">默认按钮</Button>
+  <Button shape="circle" size='large'>1</Button>
+  <Button shape="circle">1</Button>
+  <Button shape="circle" icon='Download' />
+  <Button shape="round" type="primary">圆角按钮</Button>
+</Space>`}
                     </pre>
                 </div>
 
@@ -117,12 +146,16 @@ const ButtonDoc = () => {
                     <h3>波纹效果</h3>
                     <p>可以控制按钮点击时是否显示波纹效果。</p>
                     <div className="demo">
-                        <Button rippleEffect={true}>有波纹效果</Button>
-                        <Button rippleEffect={false}>无波纹效果</Button>
+                        <Space>
+                            <Button rippleEffect={true}>有波纹效果</Button>
+                            <Button rippleEffect={false}>无波纹效果</Button>
+                        </Space>
                     </div>
                     <pre className="code">
-                        {`<Button rippleEffect={true}>有波纹效果</Button>
-<Button rippleEffect={false}>无波纹效果</Button>`}
+                        {`<Space>
+  <Button rippleEffect={true}>有波纹效果</Button>
+  <Button rippleEffect={false}>无波纹效果</Button>
+</Space>`}
                     </pre>
                 </div>
             </section>
