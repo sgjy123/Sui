@@ -31,7 +31,8 @@ const DocIndex = () => {
     { key: '/doc/grid', label: 'Grid 栅格' },
     { key: '/doc/empty', label: 'Empty 空状态' },
     { key: '/doc/breadcrumb', label: 'Breadcrumb 面包屑' },
-    { key: '/doc/tag', label: 'Tag 标签' }
+    { key: '/doc/tag', label: 'Tag 标签' },
+    { key: '/doc/message', label: 'Message 全局提示' }
   ];
 
   return (

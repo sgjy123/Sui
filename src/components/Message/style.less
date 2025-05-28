@@ -1,0 +1,102 @@
+.sui-message-wrapper {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1010;
+  pointer-events: none;
+}
+
+.sui-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sui-message {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  pointer-events: all;
+  animation: messageSlideIn 0.3s ease-in-out;
+
+  &-icon {
+    margin-right: 8px;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+
+    .sui-message-loading {
+      display: inline-flex;
+      animation: messageLoading 1s linear infinite;
+    }
+  }
+
+  &-content {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  // 预设类型
+  &-info {
+    .sui-message-icon {
+      color: #1890ff;
+    }
+  }
+
+  &-success {
+    .sui-message-icon {
+      color: #52c41a;
+    }
+  }
+
+  &-error {
+    .sui-message-icon {
+      color: #f5222d;
+    }
+  }
+
+  &-warning {
+    .sui-message-icon {
+      color: #faad14;
+    }
+  }
+
+  &-loading {
+    .sui-message-icon {
+      color: #1890ff;
+    }
+  }
+}
+
+@keyframes messageSlideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes messageLoading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

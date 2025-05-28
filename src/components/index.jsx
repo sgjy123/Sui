@@ -9,6 +9,8 @@ import Grid from './Grid';
 import Breadcrumb from './Breadcrumb';
 import Empty from './Empty';
 import Tag from './Tag';
+import message from './Message';
+
 
 export {
   Button,
@@ -22,4 +24,5 @@ export {
   Breadcrumb,
   Empty,
   Tag,
+  message,
 };

@@ -12,6 +12,7 @@ import GridDemo from './pages/components/Grid';
 import BreadcrumbDemo from './pages/components/Breadcrumb';
 import EmptyDoc from './pages/components/Empty';
 import TagDoc from './pages/components/Tag';
+import MessageDoc from './pages/components/Message';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -28,6 +29,7 @@ const Doc = () => {
                     <Route path="breadcrumb" element={<BreadcrumbDemo/>}/>
                     <Route path="empty" element={<EmptyDoc/>}/>
                     <Route path="tag" element={<TagDoc/>}/>
+                    <Route path="message" element={<MessageDoc/>}/>
                     {/* 其他子路由可以在这里添加 */}
                 </Route>
             </Routes>
