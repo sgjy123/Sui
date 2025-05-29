@@ -16,6 +16,7 @@ import Affix from './Affix';
 import Card from './Card';
 import Loading from './Loading';
 import BackTop from './BackTop';
+import Anchor from './Anchor';
 
 export {
   Button,
@@ -36,4 +37,5 @@ export {
   Card,
   Loading,
   BackTop,
+  Anchor,
 };

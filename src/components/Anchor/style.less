@@ -1,0 +1,87 @@
+// 颜色变量
+@anchor-bg-color: #fff;
+@anchor-border-color: #f0f0f0;
+@anchor-primary-color: #1890ff;
+@anchor-text-color: rgba(0, 0, 0, 0.85);
+@anchor-text-color-hover: #1890ff;
+
+// 尺寸变量
+@anchor-padding: 8px;
+@anchor-margin: 4px;
+@anchor-ink-width: 2px;
+@anchor-ink-ball-size: 8px;
+@anchor-font-size: 14px;
+@anchor-line-height: 1.5;
+
+// 动画变量
+@anchor-transition-duration: 0.3s;
+
+.sui-anchor {
+  position: relative;
+  padding-left: @anchor-ink-width;
+
+  &-fixed {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  &-ink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: @anchor-ink-width;
+    background-color: @anchor-border-color;
+
+    &-ball {
+      position: absolute;
+      left: 50%;
+      width: @anchor-ink-ball-size;
+      height: @anchor-ink-ball-size;
+      background-color: @anchor-primary-color;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transition: all @anchor-transition-duration ease;
+      opacity: 0;
+    }
+  }
+
+  &-content {
+    position: relative;
+    margin-left: @anchor-margin;
+  }
+
+  &-link {
+    &-wrapper {
+      position: relative;
+      padding: @anchor-padding 0 @anchor-padding (@anchor-padding * 2);
+    }
+
+    display: block;
+    color: @anchor-text-color;
+    font-size: @anchor-font-size;
+    line-height: @anchor-line-height;
+    text-decoration: none;
+    transition: all @anchor-transition-duration ease;
+
+    &:hover {
+      color: @anchor-text-color-hover;
+    }
+
+    &-active {
+      color: @anchor-text-color-hover;
+      font-weight: 500;
+    }
+
+    &-children {
+      margin-left: @anchor-padding;
+    }
+  }
+
+  &-ink-visible {
+    .sui-anchor-ink-ball {
+      opacity: 1;
+    }
+  }
+} 

@@ -39,6 +39,7 @@ const DocIndex = () => {
     { key: '/doc/card', label: 'Card 卡片' },
     { key: '/doc/loading', label: 'Loading 加载中' },
     { key: '/doc/backtop', label: 'BackTop 回到顶部' },
+    { key: '/doc/anchor', label: 'Anchor 锚点' },
   ];
 
   return (
