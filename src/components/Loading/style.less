@@ -1,0 +1,157 @@
+@primary-color: #1890ff;
+@text-color-secondary: rgba(0, 0, 0, 0.45);
+@font-size-base: 14px;
+
+.sui-loading {
+  position: relative;
+  display: inline-block;
+  color: @primary-color;
+
+  &-container {
+    position: relative;
+    display: inline-block;
+
+    // 当有子元素时的样式
+    &.sui-loading-has-children {
+      .sui-loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    // 当没有子元素时的样式
+    &:not(.sui-loading-has-children) {
+      .sui-loading {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  &-fullscreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  &-spin {
+    display: inline-block;
+    position: relative;
+    animation: sui-loading-spin 1s infinite linear;
+
+    .icon {
+      animation: sui-loading-spin 1s infinite linear;
+    }
+
+    &.small {
+      font-size: 24px;
+    }
+
+    &.large {
+      font-size: 40px;
+    }
+  }
+
+  &-dot {
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    transform: rotate(45deg);
+    animation: sui-loading-rotate 1.2s infinite linear;
+
+    i {
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 9px;
+      background-color: currentColor;
+      border-radius: 100%;
+      opacity: 0.3;
+      transform: scale(0.75);
+      transform-origin: 50% 50%;
+      animation: sui-loading-move 1s infinite linear alternate;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        animation-delay: 0.8s;
+      }
+
+      &:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        animation-delay: 1.2s;
+      }
+    }
+  }
+
+  &-text {
+    margin-top: 8px;
+    color: @text-color-secondary;
+    font-size: @font-size-base;
+    text-align: center;
+  }
+}
+
+@keyframes sui-loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sui-loading-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sui-loading-move {
+  from {
+    opacity: 0.3;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+} 

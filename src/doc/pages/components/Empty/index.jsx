@@ -15,7 +15,7 @@ const EmptyDoc = () => {
             <section>
                 <h2>引入</h2>
                 <pre className="code">
-                    {`import { Empty } from 'components';`}
+                    {`import { Empty } from 'Sui';`}
                 </pre>
             </section>
 

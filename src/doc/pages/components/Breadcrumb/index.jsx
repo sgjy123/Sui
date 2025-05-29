@@ -19,7 +19,7 @@ const BreadcrumbDoc = () => {
       <section>
         <h2>引入</h2>
         <pre className="code">
-          {`import { Breadcrumb } from 'components';`}
+          {`import { Breadcrumb } from 'Sui';`}
         </pre>
       </section>
 

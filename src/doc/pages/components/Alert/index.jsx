@@ -1,5 +1,5 @@
 import React from 'react';
-import Alert from 'components/Alert';
+import { Alert } from 'components';
 import './style.less';
 
 const AlertDoc = () => {
@@ -18,6 +18,11 @@ const AlertDoc = () => {
           <li>需要在页面中展示警告、成功、错误、信息等重要内容时。</li>
           <li>顶部、表单、卡片等区域的提示。</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>引入</h2>
+        <pre className="code">{`import { Alert } from 'Sui';`}</pre>
       </section>
 
       <section>

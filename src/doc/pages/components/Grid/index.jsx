@@ -17,7 +17,7 @@ const GridDoc = () => {
       <section>
         <h2>引入</h2>
         <pre className="code">
-          {`import { Grid } from 'components';
+          {`import { Grid } from 'Sui';
 const { Row, Col } = Grid;`}
         </pre>
       </section>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Timeline, Button } from 'components';
+import { Timeline } from 'components';
 import './style.less';
 
 const TimelineDoc = () => {

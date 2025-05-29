@@ -16,6 +16,9 @@ import MessageDoc from './pages/components/Message';
 import AlertDoc from './pages/components/Alert';
 import DrawerDoc from './pages/components/Drawer';
 import AffixDoc from './pages/components/Affix';
+import CardDoc from './pages/components/Card';
+import LoadingDoc from './pages/components/Loading';
+import BackTopDoc from './pages/components/BackTop';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -36,6 +39,9 @@ const Doc = () => {
                     <Route path="alert" element={<AlertDoc/>}/>
                     <Route path="drawer" element={<DrawerDoc/>}/>
                     <Route path="affix" element={<AffixDoc/>}/>
+                    <Route path="card" element={<CardDoc/>}/>
+                    <Route path="loading" element={<LoadingDoc/>}/>
+                    <Route path="backtop" element={<BackTopDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

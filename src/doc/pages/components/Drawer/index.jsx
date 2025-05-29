@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Drawer from '../../../../components/Drawer';
-import Button from '../../../../components/Button';
+import { Drawer, Button } from 'components';
 import './style.less';
 
 const DrawerDoc = () => {
@@ -26,6 +25,11 @@ const DrawerDoc = () => {
           <li>需要展示表单或操作时</li>
           <li>需要展示详情时</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>引入</h2>
+        <pre className="code">{`import { Drawer } from 'Sui';`}</pre>
       </section>
 
       <section>

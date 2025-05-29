@@ -46,7 +46,7 @@ const MessageDoc = () => {
       <section>
         <h2>引入</h2>
         <pre className="code">
-          {`import message from 'components/Message';`}
+          {`import { Message } from 'Sui';`}
         </pre>
       </section>
 

@@ -13,6 +13,9 @@ import message from './Message';
 import Alert from './Alert';
 import Drawer from './Drawer';
 import Affix from './Affix';
+import Card from './Card';
+import Loading from './Loading';
+import BackTop from './BackTop';
 
 export {
   Button,
@@ -30,4 +33,7 @@ export {
   Alert,
   Drawer,
   Affix,
+  Card,
+  Loading,
+  BackTop,
 };
