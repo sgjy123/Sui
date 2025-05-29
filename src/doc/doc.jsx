@@ -15,6 +15,7 @@ import TagDoc from './pages/components/Tag';
 import MessageDoc from './pages/components/Message';
 import AlertDoc from './pages/components/Alert';
 import DrawerDoc from './pages/components/Drawer';
+import AffixDoc from './pages/components/Affix';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -34,6 +35,7 @@ const Doc = () => {
                     <Route path="message" element={<MessageDoc/>}/>
                     <Route path="alert" element={<AlertDoc/>}/>
                     <Route path="drawer" element={<DrawerDoc/>}/>
+                    <Route path="affix" element={<AffixDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

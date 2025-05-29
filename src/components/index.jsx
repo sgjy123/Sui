@@ -12,6 +12,7 @@ import Tag from './Tag';
 import message from './Message';
 import Alert from './Alert';
 import Drawer from './Drawer';
+import Affix from './Affix';
 
 export {
   Button,
@@ -28,4 +29,5 @@ export {
   message,
   Alert,
   Drawer,
+  Affix,
 };

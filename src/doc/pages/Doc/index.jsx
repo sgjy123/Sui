@@ -34,7 +34,8 @@ const DocIndex = () => {
     { key: '/doc/tag', label: 'Tag 标签' },
     { key: '/doc/message', label: 'Message 全局提示' },
     { key: '/doc/alert', label: 'Alert 警告提示' },
-    { key: '/doc/drawer', label: 'Drawer 抽屉' }
+    { key: '/doc/drawer', label: 'Drawer 抽屉' },
+    { key: '/doc/affix', label: 'Affix 固钉' }
   ];
 
   return (
