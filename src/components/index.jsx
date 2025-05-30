@@ -21,7 +21,8 @@ import Steps from './Steps';
 import Modal from './Modal';
 import MessageBox from './MessageBox';
 import Notification from './Notification';
-
+import Avatar from './Avatar';
+import Badge from './Badge';
 
 export {
   Button,
@@ -47,4 +48,6 @@ export {
   Modal,
   MessageBox,
   Notification,
+  Avatar,
+  Badge,
 };

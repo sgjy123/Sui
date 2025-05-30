@@ -24,6 +24,8 @@ import StepsDoc from './pages/components/Steps';
 import ModalDoc from './pages/components/Modal';
 import MessageBoxDoc from './pages/components/MessageBox';  
 import NotificationDoc from './pages/components/Notification';
+import AvatarDoc from './pages/components/Avatar';
+import BadgeDoc from './pages/components/Badge';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -52,6 +54,8 @@ const Doc = () => {
                     <Route path="modal" element={<ModalDoc/>}/>
                     <Route path="messagebox" element={<MessageBoxDoc/>}/>
                     <Route path="notification" element={<NotificationDoc/>}/>
+                    <Route path="avatar" element={<AvatarDoc/>}/>
+                    <Route path="badge" element={<BadgeDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

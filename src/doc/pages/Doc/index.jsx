@@ -44,6 +44,8 @@ const DocIndex = () => {
     { key: '/doc/modal', label: 'Modal 模态框' },
     { key: '/doc/messagebox', label: 'MessageBox 消息提示框' },
     { key: '/doc/notification', label: 'Notification 通知' },
+    { key: '/doc/avatar', label: 'Avatar 头像' },
+    { key: '/doc/badge', label: 'Badge 徽标' },
   ];
 
   return (
