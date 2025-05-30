@@ -21,6 +21,9 @@ import LoadingDoc from './pages/components/Loading';
 import BackTopDoc from './pages/components/BackTop';
 import AnchorDoc from './pages/components/Anchor';
 import StepsDoc from './pages/components/Steps';
+import ModalDoc from './pages/components/Modal';
+import MessageBoxDoc from './pages/components/MessageBox';  
+import NotificationDoc from './pages/components/Notification';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -46,6 +49,9 @@ const Doc = () => {
                     <Route path="backtop" element={<BackTopDoc/>}/>
                     <Route path="anchor" element={<AnchorDoc/>}/>
                     <Route path="steps" element={<StepsDoc/>}/>
+                    <Route path="modal" element={<ModalDoc/>}/>
+                    <Route path="messagebox" element={<MessageBoxDoc/>}/>
+                    <Route path="notification" element={<NotificationDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

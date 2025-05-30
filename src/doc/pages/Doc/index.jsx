@@ -41,6 +41,9 @@ const DocIndex = () => {
     { key: '/doc/backtop', label: 'BackTop 回到顶部' },
     { key: '/doc/anchor', label: 'Anchor 锚点' },
     { key: '/doc/steps', label: 'Steps 步骤条' },
+    { key: '/doc/modal', label: 'Modal 模态框' },
+    { key: '/doc/messagebox', label: 'MessageBox 消息提示框' },
+    { key: '/doc/notification', label: 'Notification 通知' },
   ];
 
   return (

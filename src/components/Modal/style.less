@@ -1,0 +1,89 @@
+@modal-z-index: 1000;
+@modal-mask-bg: rgba(0,0,0,0.45);
+@modal-radius: 4px;
+
+.sui-modal-root {
+  position: fixed;
+  z-index: @modal-z-index;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.sui-modal-mask {
+  position: absolute;
+  inset: 0;
+  background: @modal-mask-bg;
+  z-index: 0;
+  transition: all 0.3s;
+}
+
+.sui-modal-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  min-width: 260px;
+  max-width: 90vw;
+}
+
+.sui-modal {
+  background: #fff;
+  border-radius: @modal-radius;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+  min-width: 260px;
+}
+
+.sui-modal-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sui-modal-icon {
+  margin-right: 8px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: #faad14;
+  .i-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.sui-modal-title {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.sui-modal-body {
+  padding: 12px 24px;
+  font-size: 14px;
+  color: #333;
+}
+
+.sui-modal-footer {
+  padding: 10px 16px;
+  text-align: right;
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+}
+
+.sui-modal-close {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  &:hover {
+    color: #1890ff;
+    transform: rotate(90deg);
+  }
+}

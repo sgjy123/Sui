@@ -1,0 +1,56 @@
+.sui-notification {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 384px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: flex-start;
+  animation: slideIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+.sui-notification-icon {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+.sui-notification-content {
+  flex: 1;
+}
+
+.sui-notification-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.sui-notification-message {
+  font-size: 14px;
+  color: #666;
+}
+
+.sui-notification-btn {
+  margin-top: 8px;
+}
+
+.sui-notification-close {
+  margin-left: 12px;
+  cursor: pointer;
+  color: #999;
+  font-size: 14px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+} 

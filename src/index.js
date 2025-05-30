@@ -17,6 +17,9 @@ export { default as Card } from './components/Card';
 export { default as Loading } from './components/Loading';
 export { default as BackTop } from './components/BackTop';
 export { default as Anchor } from './components/Anchor';
-
+export { default as Steps } from './components/Steps';
+export { default as Modal } from './components/Modal';
+export { default as MessageBox } from './components/MessageBox';
+export { default as Notification } from './components/Notification';
 
 

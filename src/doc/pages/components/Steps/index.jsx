@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Steps } from 'components';
+import { Steps, Button } from 'components';
 import './style.less';
 
 const stepsData = [
@@ -36,10 +36,10 @@ const StepsDemo = () => {
           <div className="example-demo">
             <Steps steps={stepsData} current={current} />
             <div style={{ margin: '24px 0' }}>
-              <button onClick={() => setCurrent(Math.max(0, current - 1))}>上一步</button>
-              <button onClick={() => setCurrent(Math.min(stepsData.length - 1, current + 1))} style={{ marginLeft: 8 }}>
+              <Button onClick={() => setCurrent(Math.max(0, current - 1))}>上一步</Button>
+              <Button onClick={() => setCurrent(Math.min(stepsData.length - 1, current + 1))} style={{ marginLeft: 8 }}>
                 下一步
-              </button>
+              </Button>
             </div>
           </div>
           <pre className="example-code">

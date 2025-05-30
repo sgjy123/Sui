@@ -18,6 +18,11 @@ import Loading from './Loading';
 import BackTop from './BackTop';
 import Anchor from './Anchor';
 import Steps from './Steps';
+import Modal from './Modal';
+import MessageBox from './MessageBox';
+import Notification from './Notification';
+
+
 export {
   Button,
   Icon,
@@ -39,4 +44,7 @@ export {
   BackTop,
   Anchor,
   Steps,
+  Modal,
+  MessageBox,
+  Notification,
 };

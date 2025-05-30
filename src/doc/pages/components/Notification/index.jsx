@@ -1,0 +1,202 @@
+import React from 'react';
+import { Notification, Button, Icon } from 'components';
+import './style.less';
+
+const NotificationDemo = () => {
+  const showBasic = () => {
+    Notification.info({
+      title: '通知标题',
+      content: '这是一条通知内容',
+    });
+  };
+
+  const showSuccess = () => {
+    Notification.success({
+      title: '成功',
+      content: '操作成功',
+    });
+  };
+
+  const showError = () => {
+    Notification.error({
+      title: '错误',
+      content: '操作失败',
+    });
+  };
+
+  const showWarning = () => {
+    Notification.warning({
+      title: '警告',
+      content: '请注意',
+    });
+  };
+
+  const showWithButton = () => {
+    Notification.info({
+      title: '通知标题',
+      content: '这是一条通知内容',
+      btn: <Button type="primary">查看详情</Button>,
+    });
+  };
+
+  const showWithIcon = () => {
+    Notification.info({
+      title: '通知标题',
+      content: '这是一条通知内容',
+      icon: <Icon name="Star" />,
+    });
+  };
+
+  const showNoAutoClose = () => {
+    Notification.info({
+      title: '通知标题',
+      content: '这是一条通知内容',
+      duration: 0,
+    });
+  };
+
+  const showNoClose = () => {
+    Notification.info({
+      title: '通知标题',
+      content: '这是一条通知内容',
+      closeable: false,
+    });
+  };
+
+  const showNoCloseDuration = () => {
+    Notification.info({
+      title: '通知标题',
+      content: '这是一条通知内容',
+      closeable: false,
+      duration: 0,
+    });
+  };
+  return (
+    <div className="notification-doc">
+      <div className="example">
+        <div className="example-title">基础用法</div>
+        <div className="example-desc">最简单的用法，4.5 秒后自动关闭。</div>
+        <div className="example-demo">
+          <Button onClick={showBasic}>显示通知</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">不同类型</div>
+        <div className="example-desc">通知提醒框有 4 种类型：info、success、error、warning。</div>
+        <div className="example-demo">
+          <Button onClick={showSuccess} style={{ marginRight: 8 }}>成功</Button>
+          <Button onClick={showError} style={{ marginRight: 8 }}>错误</Button>
+          <Button onClick={showWarning}>警告</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">自定义按钮</div>
+        <div className="example-desc">可以自定义按钮，点击按钮可以关闭通知。</div>
+        <div className="example-demo">
+          <Button onClick={showWithButton}>显示通知</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">自定义图标</div>
+        <div className="example-desc">可以自定义图标。</div>
+        <div className="example-demo">
+          <Button onClick={showWithIcon}>显示通知</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">不自动关闭</div>
+        <div className="example-desc">设置 duration 为 0，通知不会自动关闭。</div>
+        <div className="example-demo">
+          <Button onClick={showNoAutoClose}>显示通知</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">不显示关闭按钮</div>
+        <div className="example-desc">设置 closeable 为 false，通知不显示关闭按钮。</div>
+        <div className="example-demo">
+          <Button onClick={showNoClose}>显示通知</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">不可关闭</div>
+        <div className="example-desc">设置 closeable 为 false，duration 为 0，通知不显示关闭按钮，也不会自动关闭。</div>
+        <div className="example-demo">
+          <Button onClick={showNoCloseDuration}>显示通知</Button>
+        </div>
+      </div>
+
+      <div className="example">
+        <div className="example-title">API</div>
+        <div className="example-desc">Notification 组件的 API 说明。</div>
+        <table className="api-table">
+          <thead>
+            <tr>
+              <th>参数</th>
+              <th>说明</th>
+              <th>类型</th>
+              <th>默认值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>type</td>
+              <td>通知提醒框的类型</td>
+              <td>string</td>
+              <td>info</td>
+            </tr>
+            <tr>
+              <td>title</td>
+              <td>通知提醒框的标题</td>
+              <td>ReactNode</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>content</td>
+              <td>通知提醒框的内容</td>
+              <td>ReactNode</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>duration</td>
+              <td>自动关闭的延时，单位秒。设为 0 时不自动关闭</td>
+              <td>number</td>
+              <td>4.5</td>
+            </tr>
+            <tr>
+              <td>icon</td>
+              <td>自定义图标</td>
+              <td>ReactNode</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>closeable</td>
+              <td>是否显示关闭按钮</td>
+              <td>boolean</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>onClose</td>
+              <td>关闭时触发的回调函数</td>
+              <td>function</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>btn</td>
+              <td>自定义按钮</td>
+              <td>ReactNode</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default NotificationDemo; 

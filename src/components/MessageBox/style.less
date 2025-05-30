@@ -1,0 +1,51 @@
+.sui-messagebox-root {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+}
+.sui-messagebox-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+.sui-messagebox-wrap {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 320px;
+  max-width: 90vw;
+}
+.sui-messagebox {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  overflow: hidden;
+  min-width: 320px;
+}
+.sui-messagebox-header {
+  display: flex;
+  align-items: center;
+  padding: 18px 24px 0 24px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sui-messagebox-icon {
+  margin-right: 10px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
+.sui-messagebox-title {
+  flex: 1;
+}
+.sui-messagebox-content {
+  padding: 16px 24px;
+  font-size: 15px;
+  color: #333;
+}
+.sui-messagebox-footer {
+  padding: 10px 16px;
+  text-align: right;
+  background: #fafafa;
+  border-top: 1px solid #f0f0f0;
+} 
