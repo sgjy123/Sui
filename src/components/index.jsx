@@ -17,7 +17,7 @@ import Card from './Card';
 import Loading from './Loading';
 import BackTop from './BackTop';
 import Anchor from './Anchor';
-
+import Steps from './Steps';
 export {
   Button,
   Icon,
@@ -38,4 +38,5 @@ export {
   Loading,
   BackTop,
   Anchor,
+  Steps,
 };

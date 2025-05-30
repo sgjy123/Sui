@@ -40,6 +40,7 @@ const DocIndex = () => {
     { key: '/doc/loading', label: 'Loading 加载中' },
     { key: '/doc/backtop', label: 'BackTop 回到顶部' },
     { key: '/doc/anchor', label: 'Anchor 锚点' },
+    { key: '/doc/steps', label: 'Steps 步骤条' },
   ];
 
   return (

@@ -20,6 +20,7 @@ import CardDoc from './pages/components/Card';
 import LoadingDoc from './pages/components/Loading';
 import BackTopDoc from './pages/components/BackTop';
 import AnchorDoc from './pages/components/Anchor';
+import StepsDoc from './pages/components/Steps';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -44,6 +45,7 @@ const Doc = () => {
                     <Route path="loading" element={<LoadingDoc/>}/>
                     <Route path="backtop" element={<BackTopDoc/>}/>
                     <Route path="anchor" element={<AnchorDoc/>}/>
+                    <Route path="steps" element={<StepsDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
