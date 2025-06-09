@@ -24,15 +24,6 @@ const BackTopDemo = () => {
       </section>
 
       <section>
-        <h2>何时使用</h2>
-        <ul>
-          <li>当页面内容区域较长时</li>
-          <li>当用户需要快速返回页面顶部时</li>
-          <li>当页面有多个内容区域需要快速导航时</li>
-        </ul>
-      </section>
-
-      <section>
         <h2>代码演示</h2>
 
         <div className="example">

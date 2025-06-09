@@ -15,14 +15,6 @@ const LoadingDoc = () => {
       </section>
 
       <section>
-        <h2>何时使用</h2>
-        <ul>
-          <li>页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。</li>
-          <li>当操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。</li>
-        </ul>
-      </section>
-
-      <section>
         <h2>引入</h2>
         <pre className="code">
           {`import { Loading } from 'Sui';`}

@@ -1,45 +1,110 @@
-.demo-dropdown {
-  .demo-section {
-    margin-bottom: 32px;
+.dropdown-doc {
+  padding: 24px;
 
-    h4 {
-      margin-bottom: 16px;
-      color: rgba(0, 0, 0, 0.85);
-      font-weight: 500;
-      font-size: 16px;
-    }
+  h1 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #1f1f1f;
+  }
 
-    p {
-      margin-bottom: 16px;
-      color: rgba(0, 0, 0, 0.65);
-    }
+  h2 {
+    margin: 24px 0 16px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1f1f1f;
+  }
 
-    .demo-wrapper {
-      padding: 24px;
-      background: #f5f5f5;
-      border-radius: 2px;
+  h3 {
+    margin: 16px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f1f1f;
+  }
+
+  p {
+    margin: 12px 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  ul {
+    margin: 12px 0;
+    padding-left: 20px;
+    li {
+      margin: 8px 0;
+      color: #666;
+      line-height: 1.5;
     }
   }
 
-  .api-table {
+  .example {
+    margin: 24px 0;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+
+    h3 {
+      margin: 0;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    p {
+      margin: 0;
+      padding: 16px;
+      color: rgba(0, 0, 0, 0.65);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .demo {
+      padding: 24px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      
+
+      .demo-buttons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+    }
+
+    .code {
+      margin: 0;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 0 0 4px 4px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #666;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  }
+
+  table {
     width: 100%;
-    border-collapse: collapse;
     margin: 16px 0;
+    border-collapse: collapse;
 
     th, td {
-      padding: 12px 8px;
+      padding: 12px 16px;
       text-align: left;
       border-bottom: 1px solid #f0f0f0;
     }
 
     th {
-      color: rgba(0, 0, 0, 0.85);
       font-weight: 500;
       background: #fafafa;
+      color: #1f1f1f;
     }
 
     td {
-      color: rgba(0, 0, 0, 0.65);
+      color: #666;
     }
   }
 } 

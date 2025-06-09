@@ -30,13 +30,6 @@ const ModalDemo = () => {
         <p>用于需要用户处理事务，又不希望跳转页面的场景。</p>
       </section>
       <section>
-        <h2>何时使用</h2>
-        <ul>
-          <li>需要用户确认操作时。</li>
-          <li>需要弹出内容展示时。</li>
-        </ul>
-      </section>
-      <section>
         <h2>引入</h2>
         <pre>{`import Modal from 'components/Modal';`}</pre>
       </section>

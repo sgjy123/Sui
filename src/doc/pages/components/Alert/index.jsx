@@ -13,14 +13,6 @@ const AlertDoc = () => {
       </section>
 
       <section>
-        <h2>何时使用</h2>
-        <ul>
-          <li>需要在页面中展示警告、成功、错误、信息等重要内容时。</li>
-          <li>顶部、表单、卡片等区域的提示。</li>
-        </ul>
-      </section>
-
-      <section>
         <h2>引入</h2>
         <pre className="code">{`import { Alert } from 'Sui';`}</pre>
       </section>

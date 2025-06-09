@@ -13,14 +13,6 @@ const AffixDoc = () => {
       </section>
 
       <section>
-        <h2>何时使用</h2>
-        <ul>
-          <li>当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内保持固定。</li>
-          <li>常用于页面顶部的导航栏、返回顶部按钮等。</li>
-        </ul>
-      </section>
-
-      <section>
         <h2>引入</h2>
         <pre className="code">{`import { Affix } from 'Sui';`}</pre>
       </section>

@@ -35,15 +35,6 @@ const MessageDoc = () => {
       </section>
 
       <section>
-        <h2>何时使用</h2>
-        <ul>
-          <li>可提供成功、警告和错误等反馈信息。</li>
-          <li>顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。</li>
-          <li>适用于系统级消息提示，如操作结果、系统通知等。</li>
-        </ul>
-      </section>
-
-      <section>
         <h2>引入</h2>
         <pre className="code">
           {`import { Message } from 'Sui';`}

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import {Anchor} from 'components';
+import { Anchor } from 'components';
 import './style.less';
 
 const AnchorDemo = () => {
@@ -41,10 +41,15 @@ const AnchorDemo = () => {
   return (
     <div className="anchor-demo">
       <h1>Anchor 锚点</h1>
-      <p>用于跳转到页面指定位置。</p>
+      <section>
+        <h2>介绍</h2>
+        <p>用于跳转到页面指定位置。</p>
+      </section>
 
-      <h2>何时使用</h2>
-      <p>需要展现当前页面上可供跳转的锚点链接，以及快速在锚点之间跳转。</p>
+      <section>
+        <h2>引入</h2>
+        <pre className="code">{`import { Notification } from 'Sui';`}</pre>
+      </section>
 
       <h2>代码演示</h2>
 
@@ -52,7 +57,7 @@ const AnchorDemo = () => {
         <h3 id="basic">基础用法</h3>
         <p>最简单的用法。</p>
         <div className="demo-content">
-          <Anchor items={items}  />
+          <Anchor items={items} />
         </div>
       </div>
 
@@ -68,11 +73,7 @@ const AnchorDemo = () => {
         <h3 id="custom">自定义样式</h3>
         <p>可以自定义样式。</p>
         <div className="demo-content">
-          <Anchor
-            items={items}
-            style={{ background: '#f5f5f5', padding: '10px' }}
-            affix={false}
-          />
+          <Anchor items={items} style={{ background: '#f5f5f5', padding: '10px' }} affix={false} />
         </div>
       </div>
 
@@ -89,22 +90,38 @@ const AnchorDemo = () => {
               padding: '20px',
             }}
           >
-            <div id="section1" style={{ height: 100 }}>Section 1 内容</div>
-            <div id="section2" style={{ height: 100 }}>Section 2 内容</div>
-            <div id="section3" style={{ height: 100 }}>Section 3 内容</div>
-            <div id="section4" style={{ height: 100 }}>Section 4 内容</div>
-            <div id="section5" style={{ height: 100 }}>Section 5 内容</div>
-            <div id="section6" style={{ height: 100 }}>Section 6 内容</div>
-            <div id="section7" style={{ height: 100 }}>Section 7 内容</div>
-            <div id="section8" style={{ height: 100 }}>Section 8 内容</div>
-            <div id="section9" style={{ height: 100 }}>Section 9 内容</div>
-            <div id="section10" style={{ height: 100 }}>Section 10 内容</div>
+            <div id="section1" style={{ height: 100 }}>
+              Section 1 内容
+            </div>
+            <div id="section2" style={{ height: 100 }}>
+              Section 2 内容
+            </div>
+            <div id="section3" style={{ height: 100 }}>
+              Section 3 内容
+            </div>
+            <div id="section4" style={{ height: 100 }}>
+              Section 4 内容
+            </div>
+            <div id="section5" style={{ height: 100 }}>
+              Section 5 内容
+            </div>
+            <div id="section6" style={{ height: 100 }}>
+              Section 6 内容
+            </div>
+            <div id="section7" style={{ height: 100 }}>
+              Section 7 内容
+            </div>
+            <div id="section8" style={{ height: 100 }}>
+              Section 8 内容
+            </div>
+            <div id="section9" style={{ height: 100 }}>
+              Section 9 内容
+            </div>
+            <div id="section10" style={{ height: 100 }}>
+              Section 10 内容
+            </div>
           </div>
-          <Anchor
-            affix={false}
-            items={itemsCustom}
-            getContainer={() => scrollContainerRef.current}
-          />
+          <Anchor affix={false} items={itemsCustom} getContainer={() => scrollContainerRef.current} />
         </div>
       </div>
 
@@ -185,4 +202,4 @@ const AnchorDemo = () => {
   );
 };
 
-export default AnchorDemo; 
+export default AnchorDemo;

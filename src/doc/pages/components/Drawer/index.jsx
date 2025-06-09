@@ -15,16 +15,10 @@ const DrawerDoc = () => {
   return (
     <div className="drawer-doc">
       <h1>Drawer 抽屉</h1>
-      <p>抽屉从屏幕边缘滑出的浮层，可以包含表单或操作等内容。</p>
 
       <section>
-        <h2>何时使用</h2>
-        <p>抽屉组件用于在屏幕边缘显示额外的内容或操作，通常用于：</p>
-        <ul>
-          <li>需要展示更多内容时</li>
-          <li>需要展示表单或操作时</li>
-          <li>需要展示详情时</li>
-        </ul>
+        <h2>介绍</h2>
+        <p>抽屉从屏幕边缘滑出的浮层，可以包含表单或操作等内容。</p>
       </section>
 
       <section>

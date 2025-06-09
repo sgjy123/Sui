@@ -23,3 +23,5 @@ export { default as MessageBox } from './components/MessageBox';
 export { default as Notification } from './components/Notification';
 export { default as Avatar } from './components/Avatar';    
 export { default as Badge } from './components/Badge';
+export { default as Dropdown } from './components/Dropdown';
+

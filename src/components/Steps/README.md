@@ -49,7 +49,7 @@ const steps = [
 
 ### steps 结构
 
-```ts
+```js
 interface Step {
   title: ReactNode;        // 步骤标题
   description?: ReactNode; // 步骤描述

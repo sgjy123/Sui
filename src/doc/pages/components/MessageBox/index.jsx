@@ -32,6 +32,10 @@ const MessageBoxDemo = () => {
         <p>用于主动向用户反馈重要信息、操作确认等。</p>
       </section>
       <section>
+        <h2>引入</h2>
+        <pre className="code">{`import { Notification } from 'Sui';`}</pre>
+      </section>
+      <section>
         <h2>代码演示</h2>
         <div className="example">
           <div className="example-title">基础用法</div>
