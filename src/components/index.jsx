@@ -23,6 +23,7 @@ import MessageBox from './MessageBox';
 import Notification from './Notification';
 import Avatar from './Avatar';
 import Badge from './Badge';
+import Dropdown from './Dropdown';
 
 export {
   Button,
@@ -50,4 +51,5 @@ export {
   Notification,
   Avatar,
   Badge,
+  Dropdown,
 };

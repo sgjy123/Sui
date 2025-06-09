@@ -249,7 +249,7 @@ const StepsDemo = () => {
             <tr>
               <td>onChange</td>
               <td>点击步骤切换回调</td>
-              <td>(current: number) => void</td>
+              <td>(current: number) =&gt; void</td>
               <td>-</td>
             </tr>
           </tbody>

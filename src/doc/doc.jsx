@@ -26,6 +26,7 @@ import MessageBoxDoc from './pages/components/MessageBox';
 import NotificationDoc from './pages/components/Notification';
 import AvatarDoc from './pages/components/Avatar';
 import BadgeDoc from './pages/components/Badge';
+import DropdownDoc from './pages/components/Dropdown';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -56,6 +57,7 @@ const Doc = () => {
                     <Route path="notification" element={<NotificationDoc/>}/>
                     <Route path="avatar" element={<AvatarDoc/>}/>
                     <Route path="badge" element={<BadgeDoc/>}/>
+                    <Route path="dropdown" element={<DropdownDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
