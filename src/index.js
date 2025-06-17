@@ -26,4 +26,5 @@ export { default as Badge } from './components/Badge';
 export { default as Dropdown } from './components/Dropdown';
 export { default as Collapse } from './components/Collapse';
 export { default as Progress } from './components/Progress';
+export { default as PageHeader } from './components/PageHeader';
 

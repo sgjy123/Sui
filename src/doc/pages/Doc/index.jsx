@@ -49,6 +49,7 @@ const DocIndex = () => {
     { key: '/doc/dropdown', label: 'Dropdown 下拉菜单' },
     { key: '/doc/collapse', label: 'Collapse 折叠面板' },
     { key: '/doc/progress', label: 'Progress 进度条' },
+    { key: '/doc/pageheader', label: 'PageHeader 页头' },
   ];
 
   return (

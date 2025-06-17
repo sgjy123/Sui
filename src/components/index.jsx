@@ -26,6 +26,7 @@ import Badge from './Badge';
 import Dropdown from './Dropdown';
 import Collapse from './Collapse';
 import Progress from './Progress';
+import PageHeader from './PageHeader';
 
 export {
   Button,
@@ -56,4 +57,5 @@ export {
   Dropdown,
   Collapse,
   Progress,
+  PageHeader
 };

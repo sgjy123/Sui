@@ -4,7 +4,6 @@ import * as Icons from '@icon-park/react';
 import classNames from 'classnames';
 
 const Icon = ({ name, theme, size, fill, className, ...props }) => {
-  console.log(props,'props');
   // 根据 name 动态导入图标
   const IconComponent = Icons[name];
 
