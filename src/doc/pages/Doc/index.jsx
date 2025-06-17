@@ -47,6 +47,8 @@ const DocIndex = () => {
     { key: '/doc/avatar', label: 'Avatar 头像' },
     { key: '/doc/badge', label: 'Badge 徽标' },
     { key: '/doc/dropdown', label: 'Dropdown 下拉菜单' },
+    { key: '/doc/collapse', label: 'Collapse 折叠面板' },
+    { key: '/doc/progress', label: 'Progress 进度条' },
   ];
 
   return (

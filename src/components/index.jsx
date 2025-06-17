@@ -24,6 +24,8 @@ import Notification from './Notification';
 import Avatar from './Avatar';
 import Badge from './Badge';
 import Dropdown from './Dropdown';
+import Collapse from './Collapse';
+import Progress from './Progress';
 
 export {
   Button,
@@ -52,4 +54,6 @@ export {
   Avatar,
   Badge,
   Dropdown,
+  Collapse,
+  Progress,
 };

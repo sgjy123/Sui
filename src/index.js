@@ -24,4 +24,6 @@ export { default as Notification } from './components/Notification';
 export { default as Avatar } from './components/Avatar';    
 export { default as Badge } from './components/Badge';
 export { default as Dropdown } from './components/Dropdown';
+export { default as Collapse } from './components/Collapse';
+export { default as Progress } from './components/Progress';
 

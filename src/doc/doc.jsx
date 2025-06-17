@@ -27,6 +27,8 @@ import NotificationDoc from './pages/components/Notification';
 import AvatarDoc from './pages/components/Avatar';
 import BadgeDoc from './pages/components/Badge';
 import DropdownDoc from './pages/components/Dropdown';
+import CollapseDoc from './pages/components/Collapse';
+import ProgressDoc from './pages/components/Progress';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -58,6 +60,8 @@ const Doc = () => {
                     <Route path="avatar" element={<AvatarDoc/>}/>
                     <Route path="badge" element={<BadgeDoc/>}/>
                     <Route path="dropdown" element={<DropdownDoc/>}/>
+                    <Route path="collapse" element={<CollapseDoc/>}/>
+                    <Route path="progress" element={<ProgressDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
