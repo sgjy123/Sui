@@ -30,6 +30,8 @@ import DropdownDoc from './pages/components/Dropdown';
 import CollapseDoc from './pages/components/Collapse';
 import ProgressDoc from './pages/components/Progress';
 import PageHeaderDoc from './pages/components/PageHeader';
+import PaginationDoc from './pages/components/Pagination';
+import InputDoc from './pages/components/Input';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -64,6 +66,8 @@ const Doc = () => {
                     <Route path="collapse" element={<CollapseDoc/>}/>
                     <Route path="progress" element={<ProgressDoc/>}/>
                     <Route path="pageheader" element={<PageHeaderDoc/>}/>
+                    <Route path="pagination" element={<PaginationDoc/>}/>
+                    <Route path="input" element={<InputDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

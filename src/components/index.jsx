@@ -27,6 +27,8 @@ import Dropdown from './Dropdown';
 import Collapse from './Collapse';
 import Progress from './Progress';
 import PageHeader from './PageHeader';
+import Pagination from './Pagination';
+import Input from './Input';  
 
 export {
   Button,
@@ -57,5 +59,7 @@ export {
   Dropdown,
   Collapse,
   Progress,
-  PageHeader
+  PageHeader,
+  Pagination,
+  Input
 };

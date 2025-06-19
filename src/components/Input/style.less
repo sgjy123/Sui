@@ -1,0 +1,251 @@
+.sui-input {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 6px 11px;
+  color: #000000d9;
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: all 0.3s;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: #40a9ff;
+  }
+
+  &-focused {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &-disabled {
+    color: #00000040;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 1;
+
+    &:hover {
+      border-color: #d9d9d9;
+    }
+  }
+
+  &-error {
+    border-color: #ff4d4f;
+
+    &:hover {
+      border-color: #ff7875;
+    }
+
+    &-focused {
+      border-color: #ff4d4f;
+      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+    }
+  }
+
+  &-lg {
+    padding: 6px 11px;
+    font-size: 16px;
+  }
+
+  &-sm {
+    padding: 2px 7px;
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+
+    &::placeholder {
+      color: #bfbfbf;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &-prefix-icon,
+  &-suffix-icon {
+    display: flex;
+    align-items: center;
+    color: #00000040;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  &-prefix-icon {
+    margin-right: 8px;
+  }
+
+  &-suffix-icon {
+    margin-left: 8px;
+  }
+
+  &-clear-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #999;
+    }
+  }
+
+  &-prefix {
+    input {
+      padding-left: 0;
+    }
+  }
+
+  &-suffix {
+    input {
+      padding-right: 0;
+    }
+  }
+
+  &-loading {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color: #1890ff;
+    font-size: 14px;
+    animation: sui-input-spin 1s linear infinite;
+  }
+}
+
+@keyframes sui-input-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sui-textarea {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 11px;
+  color: #000000d9;
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  transition: all 0.3s;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: #40a9ff;
+  }
+
+  &-focused {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &-disabled {
+    color: #00000040;
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 1;
+    &:hover {
+      border-color: #d9d9d9;
+    }
+  }
+
+  &-readonly {
+    background-color: #fafafa;
+    color: #000000a6;
+    cursor: default;
+  }
+
+  &-lg {
+    font-size: 16px;
+    padding: 6px 11px;
+  }
+  &-sm {
+    font-size: 14px;
+    padding: 0 7px;
+  }
+
+  .sui-textarea-inner {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    resize: none;
+    box-sizing: border-box;
+    &::placeholder {
+      color: #bfbfbf;
+    }
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &-clear-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    color: #00000040;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 2;
+    &:hover {
+      color: #00000073;
+    }
+  }
+
+  &-count {
+    position: absolute;
+    right: 8px;
+    bottom: 4px;
+    color: #bfbfbf;
+    font-size: 12px;
+    background: #fff;
+    padding: 0 4px;
+    pointer-events: none;
+  }
+
+  &-addon {
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    color: #888;
+    padding: 0 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    height: 100%;
+    &-before {
+      margin-right: 8px;
+    }
+    &-after {
+      margin-left: 8px;
+    }
+  }
+} 

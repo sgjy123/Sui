@@ -50,6 +50,8 @@ const DocIndex = () => {
     { key: '/doc/collapse', label: 'Collapse 折叠面板' },
     { key: '/doc/progress', label: 'Progress 进度条' },
     { key: '/doc/pageheader', label: 'PageHeader 页头' },
+    { key: '/doc/pagination', label: 'Pagination 分页' }, 
+    { key: '/doc/input', label: 'Input 输入框' },
   ];
 
   return (
