@@ -29,6 +29,7 @@ import Progress from './Progress';
 import PageHeader from './PageHeader';
 import Pagination from './Pagination';
 import Input from './Input';  
+import Select from './Select';
 
 export {
   Button,
@@ -61,5 +62,6 @@ export {
   Progress,
   PageHeader,
   Pagination,
-  Input
+  Input,
+  Select
 };

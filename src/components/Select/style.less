@@ -1,0 +1,229 @@
+.sui-select {
+  position: relative;
+  display: inline-block;
+  min-width: 160px;
+  font-size: 14px;
+  outline: none;
+}
+.sui-select-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.sui-select-selection {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 6px 32px 6px 12px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: border 0.2s;
+  min-height: 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  padding-right: 40px;
+}
+.sui-select-selection:hover {
+  border-color: #409eff;
+}
+.sui-select-selection.sui-select-open {
+  border-color: #409eff;
+  box-shadow: 0 0 0 2px rgba(64,158,255,0.1);
+}
+.sui-select-placeholder {
+  color: #bfbfbf;
+}
+.sui-select-arrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bfbfbf;
+  font-size: 16px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.sui-select-open .sui-select-arrow,
+.sui-select-selection:hover .sui-select-arrow {
+  color: #595959;
+}
+.sui-select-clear {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bfbfbf;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+  background: transparent;
+  padding: 2px;
+}
+.sui-select-clear:hover {
+  color: #595959;
+}
+.sui-select-dropdown {
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px 0;
+  min-width: 100%;
+  transition: all 0.2s;
+}
+.sui-select-dropdown-up {
+  bottom: 100%;
+  top: auto;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.sui-select-dropdown-down {
+  top: 100%;
+  bottom: auto;
+}
+.sui-select-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 2px;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+.sui-select-option:hover {
+  background: #e6f7ff;
+}
+.sui-select-option-selected {
+  background: #e6f7ff;
+  color: #409eff;
+  font-weight: 500;
+}
+.sui-select-option-disabled {
+  color: #bfbfbf;
+  cursor: not-allowed;
+  background: #fafafa;
+}
+.sui-select-option-disabled:hover {
+  background: #fafafa;
+}
+.sui-select-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  padding-right: 10px;
+}
+.sui-select-tag {
+  background: #f0f0f0;
+  border-radius: 2px;
+  padding: 0 8px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+.sui-select-tag-close {
+  margin-left: 4px;
+  font-size: 12px;
+  color: #bbb;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.sui-select-tag-close:hover {
+  color: #595959;
+}
+.sui-select-group-label {
+  font-size: 12px;
+  color: #999;
+  padding: 4px 12px 2px 12px;
+  font-weight: 500;
+  background: #fafafa;
+}
+.sui-select-empty {
+  color: #bbb;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 14px;
+}
+.sui-select-default .sui-select-selection,
+.sui-select-middle .sui-select-selection {
+  min-height: 32px;
+  font-size: 14px;
+  padding: 6px 11px 6px 11px;
+}
+.sui-select-large .sui-select-selection {
+  min-height: 40px;
+  font-size: 16px;
+  padding: 6px 11px 6px 11px;
+}
+.sui-select-small .sui-select-selection {
+  min-height: 24px;
+  font-size: 14px;
+  padding: 2px 7px 2px 7px;
+}
+.sui-select-large .sui-select-arrow {
+  right: 10px;
+  font-size: 16px;
+}
+.sui-select-small .sui-select-arrow {
+  right: 6px;
+  font-size: 12px;
+}
+.sui-select-large .sui-select-clear {
+  right: 30px;
+  font-size: 16px;
+}
+.sui-select-small .sui-select-clear {
+  right: 16px;
+  font-size: 12px;
+}
+.sui-select-large .sui-select-tag {
+  font-size: 15px;
+  padding: 0 10px;
+}
+.sui-select-small .sui-select-tag {
+  font-size: 13px;
+  padding: 0 6px;
+}
+.sui-select-search {
+  padding: 4px 8px 8px 8px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+.sui-select-search .sui-input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.sui-select-search-input {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  line-height: inherit;
+  box-sizing: border-box;
+} 

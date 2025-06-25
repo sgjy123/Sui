@@ -52,6 +52,7 @@ const DocIndex = () => {
     { key: '/doc/pageheader', label: 'PageHeader 页头' },
     { key: '/doc/pagination', label: 'Pagination 分页' }, 
     { key: '/doc/input', label: 'Input 输入框' },
+    { key: '/doc/select', label: 'Select 下拉框' },
   ];
 
   return (

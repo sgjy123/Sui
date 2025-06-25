@@ -32,6 +32,7 @@ import ProgressDoc from './pages/components/Progress';
 import PageHeaderDoc from './pages/components/PageHeader';
 import PaginationDoc from './pages/components/Pagination';
 import InputDoc from './pages/components/Input';
+import SelectDoc from './pages/components/Select';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -68,6 +69,7 @@ const Doc = () => {
                     <Route path="pageheader" element={<PageHeaderDoc/>}/>
                     <Route path="pagination" element={<PaginationDoc/>}/>
                     <Route path="input" element={<InputDoc/>}/>
+                    <Route path="select" element={<SelectDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

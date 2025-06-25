@@ -21,10 +21,11 @@ export { default as Steps } from './components/Steps';
 export { default as Modal } from './components/Modal';
 export { default as MessageBox } from './components/MessageBox';
 export { default as Notification } from './components/Notification';
-export { default as Avatar } from './components/Avatar';    
+export { default as Avatar } from './components/Avatar';
 export { default as Badge } from './components/Badge';
 export { default as Dropdown } from './components/Dropdown';
 export { default as Collapse } from './components/Collapse';
 export { default as Progress } from './components/Progress';
 export { default as PageHeader } from './components/PageHeader';
-
+export { default as Pagination} from './components/Pagination';
+export { default as Input} from './components/Input';
