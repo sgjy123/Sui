@@ -30,6 +30,9 @@ import PageHeader from './PageHeader';
 import Pagination from './Pagination';
 import Input from './Input';  
 import Select from './Select';
+import Radio from './Radio';
+import Checkbox from './Checkbox';
+import InputNumber from './InputNumber';
 
 export {
   Button,
@@ -63,5 +66,8 @@ export {
   PageHeader,
   Pagination,
   Input,
-  Select
+  Select,
+  Radio,
+  Checkbox,
+  InputNumber,
 };

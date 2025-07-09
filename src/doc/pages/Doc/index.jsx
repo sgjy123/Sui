@@ -53,6 +53,9 @@ const DocIndex = () => {
     { key: '/doc/pagination', label: 'Pagination 分页' }, 
     { key: '/doc/input', label: 'Input 输入框' },
     { key: '/doc/select', label: 'Select 下拉框' },
+    { key: '/doc/radio', label: 'Radio 单选框' },
+    { key: '/doc/checkbox', label: 'Checkbox 多选框' },
+    { key: '/doc/inputnumber', label: 'InputNumber 数字输入框' },
   ];
 
   return (

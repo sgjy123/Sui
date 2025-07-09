@@ -33,6 +33,9 @@ import PageHeaderDoc from './pages/components/PageHeader';
 import PaginationDoc from './pages/components/Pagination';
 import InputDoc from './pages/components/Input';
 import SelectDoc from './pages/components/Select';
+import RadioDoc from './pages/components/Radio';
+import CheckboxDoc from './pages/components/Checkbox';
+import InputNumberDoc from './pages/components/InputNumber';
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -70,6 +73,9 @@ const Doc = () => {
                     <Route path="pagination" element={<PaginationDoc/>}/>
                     <Route path="input" element={<InputDoc/>}/>
                     <Route path="select" element={<SelectDoc/>}/>
+                    <Route path="radio" element={<RadioDoc/>}/>
+                    <Route path="checkbox" element={<CheckboxDoc/>}/>
+                    <Route path="inputnumber" element={<InputNumberDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

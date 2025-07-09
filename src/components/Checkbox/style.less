@@ -1,0 +1,129 @@
+.sui-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+  position: relative;
+  margin-right: 16px;
+
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+  }
+
+  &-inner {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #d9d9d9;
+    border-radius: 3px;
+    background: #fff;
+    margin-right: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &:hover &-inner {
+    border-color: #1677ff;
+  }
+
+  &-checked &-inner {
+    border-color: #1677ff;
+    background: #1677ff;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  &-checked &-inner::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%) rotate(45deg);
+    box-sizing: border-box;
+    border-radius: 1px;
+    animation: checkbox-checkmark 0.2s;
+  }
+
+  @keyframes checkbox-checkmark {
+    0% { opacity: 0; transform: scale(0.5) translate(-50%, -60%) rotate(45deg); }
+    100% { opacity: 1; transform: scale(1) translate(-50%, -60%) rotate(45deg); }
+  }
+
+  &-indeterminate &-inner {
+    border-color: #1677ff;
+    background: #1677ff;
+  }
+  &-indeterminate &-inner::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-label {
+    margin-left: 2px;
+  }
+}
+
+.sui-checkbox-group {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &-block {
+    display: flex;
+    width: 100%;
+    .sui-checkbox {
+      flex: 1 1 0;
+      justify-content: center;
+    }
+  }
+
+  &-small {
+    font-size: 12px;
+    .sui-checkbox {
+      height: 24px;
+      line-height: 24px;
+      min-width: 40px;
+    }
+  }
+  &-middle {
+    font-size: 14px;
+    .sui-checkbox {
+      height: 32px;
+      line-height: 32px;
+      min-width: 60px;
+    }
+  }
+  &-large {
+    font-size: 16px;
+    .sui-checkbox {
+      height: 40px;
+      line-height: 40px;
+      min-width: 80px;
+    }
+  }
+} 

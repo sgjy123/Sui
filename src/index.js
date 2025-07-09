@@ -29,3 +29,5 @@ export { default as Progress } from './components/Progress';
 export { default as PageHeader } from './components/PageHeader';
 export { default as Pagination} from './components/Pagination';
 export { default as Input} from './components/Input';
+export { default as Select} from './components/Select';
+export { default as Radio} from './components/Radio';

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Select from 'components/Select';
-import { Icon } from 'components';
+import { Icon, Select } from 'components';
 import './style.less';
 
 const options = [
