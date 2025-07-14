@@ -31,3 +31,8 @@ export { default as Pagination} from './components/Pagination';
 export { default as Input} from './components/Input';
 export { default as Select} from './components/Select';
 export { default as Radio} from './components/Radio';
+export { default as Checkbox} from './components/Checkbox';
+export { default as InputNumber} from './components/InputNumber';
+export { default as Rate} from './components/Rate';
+export { default as Switch} from './components/Switch';
+export { default as Slider} from './components/Slider';

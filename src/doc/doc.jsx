@@ -36,6 +36,10 @@ import SelectDoc from './pages/components/Select';
 import RadioDoc from './pages/components/Radio';
 import CheckboxDoc from './pages/components/Checkbox';
 import InputNumberDoc from './pages/components/InputNumber';
+import RateDoc from './pages/components/Rate';
+import SwitchDoc from './pages/components/Switch';
+import SliderDoc from './pages/components/Slider';
+
 const Doc = () => {
     return (
         <BrowserRouter>
@@ -76,6 +80,9 @@ const Doc = () => {
                     <Route path="radio" element={<RadioDoc/>}/>
                     <Route path="checkbox" element={<CheckboxDoc/>}/>
                     <Route path="inputnumber" element={<InputNumberDoc/>}/>
+                    <Route path="rate" element={<RateDoc/>}/>
+                    <Route path="switch" element={<SwitchDoc/>}/>
+                    <Route path="slider" element={<SliderDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

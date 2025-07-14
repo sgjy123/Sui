@@ -1,0 +1,128 @@
+.sui-switch {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 44px;
+  height: 22px;
+  padding: 0;
+  line-height: 22px;
+  vertical-align: middle;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  outline: none;
+  
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  
+  &-checked {
+    background-color: #1890ff;
+  }
+  
+  &-loading, &-disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+  
+  // 开关滑块
+  &-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    
+    .sui-switch-checked & {
+      left: calc(100% - 20px);
+    }
+    
+    // 加载中图标
+    .sui-switch-loading-icon {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 12px;
+      transform: translate(-50%, -50%);
+      color: rgba(0, 0, 0, 0.65);
+      animation: sui-switch-loading-spin 1s infinite linear;
+    }
+  }
+  
+  // 内部文本
+  &-inner {
+    display: block;
+    margin: 0 7px 0 25px;
+    color: #fff;
+    font-size: 12px;
+    transition: margin 0.2s;
+    
+    .sui-switch-checked & {
+      margin: 0 25px 0 7px;
+    }
+  }
+  
+  // 小号开关
+  &-small {
+    min-width: 28px;
+    height: 16px;
+    line-height: 16px;
+    
+    .sui-switch-handle {
+      width: 12px;
+      height: 12px;
+    }
+    
+    &.sui-switch-checked .sui-switch-handle {
+      left: calc(100% - 14px);
+    }
+    
+    .sui-switch-inner {
+      margin: 0 5px 0 18px;
+      font-size: 10px;
+    }
+    
+    &.sui-switch-checked .sui-switch-inner {
+      margin: 0 18px 0 5px;
+    }
+  }
+  
+  // 大号开关
+  &-large {
+    min-width: 56px;
+    height: 28px;
+    line-height: 28px;
+    
+    .sui-switch-handle {
+      width: 24px;
+      height: 24px;
+    }
+    
+    &.sui-switch-checked .sui-switch-handle {
+      left: calc(100% - 26px);
+    }
+    
+    .sui-switch-inner {
+      margin: 0 9px 0 33px;
+      font-size: 14px;
+    }
+    
+    &.sui-switch-checked .sui-switch-inner {
+      margin: 0 33px 0 9px;
+    }
+  }
+}
+
+// 加载动画
+@keyframes sui-switch-loading-spin {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+} 

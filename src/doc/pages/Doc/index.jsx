@@ -56,6 +56,9 @@ const DocIndex = () => {
     { key: '/doc/radio', label: 'Radio 单选框' },
     { key: '/doc/checkbox', label: 'Checkbox 多选框' },
     { key: '/doc/inputnumber', label: 'InputNumber 数字输入框' },
+    { key: '/doc/rate', label: 'Rate 评分' },
+    { key: '/doc/switch', label: 'Switch 开关' },
+    { key: '/doc/slider', label: 'Slider 滑块' },
   ];
 
   return (

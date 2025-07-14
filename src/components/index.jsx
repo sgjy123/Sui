@@ -28,11 +28,16 @@ import Collapse from './Collapse';
 import Progress from './Progress';
 import PageHeader from './PageHeader';
 import Pagination from './Pagination';
-import Input from './Input';  
+import Input from './Input';
 import Select from './Select';
 import Radio from './Radio';
 import Checkbox from './Checkbox';
 import InputNumber from './InputNumber';
+import Rate from './Rate';
+import Switch from './Switch';
+import Slider from './Slider';
+const Row = Grid.Row;
+const Col = Grid.Col;
 
 export {
   Button,
@@ -51,6 +56,8 @@ export {
   Drawer,
   Affix,
   Card,
+  Row,
+  Col,
   Loading,
   BackTop,
   Anchor,
@@ -70,4 +77,7 @@ export {
   Radio,
   Checkbox,
   InputNumber,
+  Rate,
+  Switch,
+  Slider,
 };

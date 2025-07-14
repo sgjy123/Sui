@@ -1,0 +1,90 @@
+.sui-rate {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  font-size: 20px;
+  line-height: unset;
+  outline: none;
+  
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    
+    .sui-rate-star {
+      cursor: not-allowed;
+    }
+  }
+  
+  &-lg {
+    font-size: 24px;
+  }
+  
+  &-sm {
+    font-size: 16px;
+  }
+
+  &-star {
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+    cursor: pointer;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+    
+    // 背景星星（灰色）
+    &-bg {
+      color: #e8e8e8;
+    }
+    
+    // 前景星星（黄色）
+    &-fg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #fadb14;
+      width: 0; // 默认宽度为0，不显示
+      
+      .sui-rate-star-half & {
+        width: 50%; // 半星显示一半
+      }
+      
+      .sui-rate-star-active & {
+        width: 100%; // 全星显示全部
+      }
+    }
+    
+    // 星星字符
+    &-character {
+      display: inline-block;
+      transition: transform 0.3s;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  
+  &:hover:not(.sui-rate-disabled) {
+    .sui-rate-star-fg {
+      color: #faad14; // 悬停时颜色变亮
+    }
+  }
+}
+
+// 深色主题
+[data-theme='dark'] .sui-rate {
+  .sui-rate-star {
+    &-bg {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    
+    &-fg {
+      color: #fadb14;
+    }
+  }
+} 
