@@ -59,6 +59,7 @@ const DocIndex = () => {
     { key: '/doc/rate', label: 'Rate 评分' },
     { key: '/doc/switch', label: 'Switch 开关' },
     { key: '/doc/slider', label: 'Slider 滑块' },
+    { key: '/doc/cascader', label: 'Cascader 级联选择器' },
   ];
 
   return (

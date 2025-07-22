@@ -1,0 +1,202 @@
+.sui-cascader {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 120px;
+  height: 32px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  padding: 0 32px 0 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &.sui-cascader-lg {
+    height: 40px;
+    font-size: 16px;
+  }
+  &.sui-cascader-sm {
+    height: 24px;
+    font-size: 12px;
+  }
+  &.is-disabled {
+    background: #f5f5f5;
+    color: #bfbfbf;
+    cursor: not-allowed;
+    border-color: #f0f0f0;
+  }
+  &:hover:not(.is-disabled),
+  &:focus:not(.is-disabled) {
+    border-color: #409eff;
+  }
+
+  .sui-cascader-label {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  .sui-cascader-placeholder {
+    color: #bfbfbf;
+  }
+  .sui-cascader-arrow {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bfbfbf;
+    pointer-events: none;
+  }
+  .sui-cascader-clear {
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bfbfbf;
+    cursor: pointer;
+    z-index: 2;
+    &:hover {
+      color: #409eff;
+    }
+  }
+  .sui-cascader-tags {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    min-width: 0;
+    height: 28px;
+    overflow: hidden;
+  }
+  .sui-cascader-tag {
+    flex-shrink: 1; // 允许被压缩
+    min-width: 0;
+  }
+  .sui-cascader-tag-rest {
+    flex-shrink: 0; // 不允许被压缩
+  }
+  .sui-cascader-tag {
+    position: relative;
+    background: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 0 22px 0 8px;
+    font-size: 12px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    height: 22px;
+    margin-right: 0;
+  }
+  .sui-cascader-tag-close {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bfbfbf;
+    cursor: pointer;
+    font-size: 12px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: color 0.2s;
+  }
+  .sui-cascader-tag:hover .sui-cascader-tag-close {
+    color: #409eff;
+  }
+  .sui-cascader-tag-rest {
+    background: #f0f0f0;
+    color: #888;
+    border: none;
+    cursor: pointer;
+    max-width: 36px;
+    height: 22px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+  .sui-cascader-tag-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.sui-cascader-checkbox {
+  margin-right: 6px;
+  accent-color: #409eff;
+  vertical-align: middle;
+}
+
+.sui-cascader-dropdown-wrap {
+  z-index: 1050;
+}
+.sui-cascader-dropdown {
+  display: flex;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 4px;
+  padding: 8px 0;
+  min-width: 180px;
+}
+.sui-cascader-menu {
+  min-width: 140px;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-right: 1px solid #f0f0f0;
+  &:last-child {
+    border-right: none;
+  }
+}
+.sui-cascader-menu-item {
+  padding: 0 16px;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: background 0.2s;
+  &:hover:not(.is-disabled) {
+    background: #f5f7fa;
+    color: #409eff;
+  }
+  &.is-active {
+    background: #e6f7ff;
+    color: #409eff;
+  }
+  &.is-disabled {
+    color: #bfbfbf;
+    cursor: not-allowed;
+    background: #fff;
+  }
+  .sui-cascader-arrow {
+    margin-left: auto;
+    color: #bfbfbf;
+  }
+  .sui-cascader-loading {
+    margin-left: 8px;
+    color: #409eff;
+    animation: sui-cascader-spin 1s linear infinite;
+  }
+}
+@keyframes sui-cascader-spin {
+  100% { transform: rotate(360deg); }
+} 

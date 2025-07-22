@@ -36,6 +36,7 @@ import InputNumber from './InputNumber';
 import Rate from './Rate';
 import Switch from './Switch';
 import Slider from './Slider';
+import Cascader from './Cascader';
 const Row = Grid.Row;
 const Col = Grid.Col;
 
@@ -80,4 +81,5 @@ export {
   Rate,
   Switch,
   Slider,
+  Cascader,
 };

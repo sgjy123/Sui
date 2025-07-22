@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import classNames from 'classnames';
 import '../Tooltip/style.less';
 import './style.less';
+import PropTypes from 'prop-types';
 
 // 工具函数
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
@@ -272,4 +273,44 @@ const Slider = ({
   );
 };
 
+
+Slider.propTypes = {
+  value: (props, propName, componentName) => {
+    if (props.range) {
+      if (props[propName] && !Array.isArray(props[propName])) {
+        return new Error(`${componentName}: value should be array when range=true`);
+      }
+    } else {
+      if (props[propName] && typeof props[propName] !== 'number') {
+        return new Error(`${componentName}: value should be number when range=false`);
+      }
+    }
+  },
+  defaultValue: (props, propName, componentName) => {
+    if (props.range) {
+      if (props[propName] && !Array.isArray(props[propName])) {
+        return new Error(`${componentName}: defaultValue should be array when range=true`);
+      }
+    } else {
+      if (props[propName] && typeof props[propName] !== 'number') {
+        return new Error(`${componentName}: defaultValue should be number when range=false`);
+      }
+    }
+  },
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  marks: PropTypes.object,
+  vertical: PropTypes.bool,
+  disabled: PropTypes.bool,
+  range: PropTypes.bool,
+  tooltipVisible: PropTypes.bool,
+  tipFormatter: PropTypes.func,
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
 export default Slider;
+

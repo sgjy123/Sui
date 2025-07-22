@@ -39,6 +39,7 @@ import InputNumberDoc from './pages/components/InputNumber';
 import RateDoc from './pages/components/Rate';
 import SwitchDoc from './pages/components/Switch';
 import SliderDoc from './pages/components/Slider';
+import CascaderDoc from './pages/components/Cascader';
 
 const Doc = () => {
     return (
@@ -83,6 +84,7 @@ const Doc = () => {
                     <Route path="rate" element={<RateDoc/>}/>
                     <Route path="switch" element={<SwitchDoc/>}/>
                     <Route path="slider" element={<SliderDoc/>}/>
+                    <Route path="cascader" element={<CascaderDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
