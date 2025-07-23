@@ -40,6 +40,9 @@ import RateDoc from './pages/components/Rate';
 import SwitchDoc from './pages/components/Switch';
 import SliderDoc from './pages/components/Slider';
 import CascaderDoc from './pages/components/Cascader';
+import DatePickerDoc from './pages/components/DatePicker';
+import TimePickerDoc from './pages/components/TimePicker';
+import ColorPickerDoc from './pages/components/ColorPicker';
 
 const Doc = () => {
     return (
@@ -85,6 +88,9 @@ const Doc = () => {
                     <Route path="switch" element={<SwitchDoc/>}/>
                     <Route path="slider" element={<SliderDoc/>}/>
                     <Route path="cascader" element={<CascaderDoc/>}/>
+                    <Route path="datepicker" element={<DatePickerDoc/>}/>
+                    <Route path="timepicker" element={<TimePickerDoc/>}/>
+                    <Route path="colorpicker" element={<ColorPickerDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

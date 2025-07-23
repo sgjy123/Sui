@@ -60,6 +60,9 @@ const DocIndex = () => {
     { key: '/doc/switch', label: 'Switch 开关' },
     { key: '/doc/slider', label: 'Slider 滑块' },
     { key: '/doc/cascader', label: 'Cascader 级联选择器' },
+    { key: '/doc/datepicker', label: 'DatePicker 日期选择框' },
+    { key: '/doc/timepicker', label: 'TimePicker 时间选择框' },
+    { key: '/doc/colorpicker', label: 'ColorPicker 颜色选择器' },
   ];
 
   return (

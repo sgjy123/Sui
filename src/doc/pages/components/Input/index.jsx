@@ -32,7 +32,16 @@ const InputDemo = () => {
   return (
     <div className="sui-doc">
       <h1>Input 输入框</h1>
-      <p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
+
+      <section>
+        <h2>介绍</h2>
+        <p>通过鼠标或键盘输入内容，是最基础的表单域的包装。</p>
+      </section>
+
+       <section>
+        <h2>引入</h2>
+        <pre className="code">{`import { Input } from 'Sui';`}</pre>
+      </section>
 
       <section>
         <h2>代码演示</h2>

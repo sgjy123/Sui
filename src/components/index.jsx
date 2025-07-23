@@ -37,6 +37,9 @@ import Rate from './Rate';
 import Switch from './Switch';
 import Slider from './Slider';
 import Cascader from './Cascader';
+import DatePicker from './DatePicker';
+import TimePicker from './TimePicker';
+import ColorPicker from './ColorPicker';
 const Row = Grid.Row;
 const Col = Grid.Col;
 
@@ -82,4 +85,7 @@ export {
   Switch,
   Slider,
   Cascader,
+  DatePicker,
+  TimePicker,
+  ColorPicker,
 };
