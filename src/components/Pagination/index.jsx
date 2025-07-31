@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
+import Select from '../Select';
+import Input from '../Input';
 import './style.less';
 
 const Pagination = ({
@@ -102,9 +104,9 @@ const Pagination = ({
     return pages;
   }, [currentPage, disabled, goToPage, simple, totalPages]);
 
-  const handlePageSizeChange = useCallback((e) => {
+  const handlePageSizeChange = useCallback((value) => {
     if (disabled) return;
-    const newSize = Number(e.target.value);
+    const newSize = Number(value);
     if (newSize !== currentPageSize) {
       setCurrentPageSize(newSize);
       // When page size changes, jump to the first page
@@ -113,16 +115,18 @@ const Pagination = ({
     }
   }, [currentPageSize, disabled, onChange]);
 
+  const [jumpValue, setJumpValue] = useState('');
+
   const handleQuickJumper = useCallback((e) => {
     if (disabled) return;
     if (e.key === 'Enter') {
-      let jumpPage = Number(e.target.value);
+      let jumpPage = Number(jumpValue);
       if (!isNaN(jumpPage) && jumpPage > 0) {
         goToPage(jumpPage);
-        e.target.value = ''; // Clear input after jump
+        setJumpValue(''); // Clear input after jump
       }
     }
-  }, [disabled, goToPage]);
+  }, [disabled, goToPage, jumpValue]);
 
   const renderSimplePagination = () => (
     <ul className="sui-pagination sui-pagination-simple">
@@ -190,26 +194,27 @@ const Pagination = ({
       </li>
       {showSizeChanger && (
         <li className="sui-pagination-options">
-          <select 
-            value={currentPageSize} 
-            onChange={handlePageSizeChange} 
+          <Select
+            value={currentPageSize.toString()}
+            onChange={handlePageSizeChange}
             disabled={disabled}
-          >
-            {pageSizeOptions.map((option) => (
-              <option key={option} value={option}>
-                {`${option} 条/页`}
-              </option>
-            ))}
-          </select>
+            options={pageSizeOptions.map((option) => ({
+              label: `${option} 条/页`,
+              value: option,
+            }))}
+            style={{ width: 120 }}
+          />
         </li>
       )}
       {showQuickJumper && (
         <li className="sui-pagination-options sui-pagination-options-quick-jumper">
           跳转至
-          <input
-            type="text"
+          <Input
+            value={jumpValue}
+            onChange={(e) => setJumpValue(e.target.value)}
             onKeyDown={handleQuickJumper}
             disabled={disabled}
+            style={{ width: 50, margin: '0 8px' }}
           />
           页
         </li>

@@ -40,6 +40,9 @@ import Cascader from './Cascader';
 import DatePicker from './DatePicker';
 import TimePicker from './TimePicker';
 import ColorPicker from './ColorPicker';
+import Transfer from './Transfer';
+import Upload from './Upload';
+import Table from './Table';
 const Row = Grid.Row;
 const Col = Grid.Col;
 
@@ -88,4 +91,7 @@ export {
   DatePicker,
   TimePicker,
   ColorPicker,
+  Transfer,
+  Upload,
+  Table,
 };

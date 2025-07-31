@@ -21,7 +21,6 @@ const Select = ({
   mode = 'single',
   allowClear = false,
   getPopupContainer,
-  icon,
   dropdownWidth,
   renderOption,
   className = '',

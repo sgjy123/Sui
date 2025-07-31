@@ -63,6 +63,9 @@ const DocIndex = () => {
     { key: '/doc/datepicker', label: 'DatePicker 日期选择框' },
     { key: '/doc/timepicker', label: 'TimePicker 时间选择框' },
     { key: '/doc/colorpicker', label: 'ColorPicker 颜色选择器' },
+    { key: '/doc/transfer', label: 'Transfer 穿梭框' },
+    { key: '/doc/upload', label: 'Upload 上传' },
+    { key: '/doc/table', label: 'Table 表格' },
   ];
 
   return (

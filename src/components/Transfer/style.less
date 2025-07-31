@@ -1,0 +1,105 @@
+@border-color: #d9d9d9;
+@primary-color: #409eff;
+@bg-color: #fff;
+@disabled-bg: #f5f5f5;
+@disabled-color: #bfbfbf;
+
+.sui-transfer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  overflow: hidden;
+  .sui-transfer-list {
+    background: @bg-color;
+    width: 220px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    box-sizing: border-box;
+    &.is-disabled {
+      background: @disabled-bg;
+      color: @disabled-color;
+      border-color: #f0f0f0;
+    }
+    .sui-transfer-list-header {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid @border-color;
+      border-radius: 4px 4px 0 0;
+      font-weight: 500;
+      background: #fafafa;
+      .sui-transfer-list-title {
+        flex: 1;
+        margin-left: 8px;
+      }
+      .sui-transfer-list-count {
+        color: #888;
+        font-size: 12px;
+        margin-left: 8px;
+      }
+    }
+    .sui-transfer-list-search {
+      padding: 8px 12px;
+      border: 1px solid @border-color;
+      border-top: none;
+    }
+    .sui-transfer-list-content {
+      flex: 1;
+      overflow-y: auto;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background: @bg-color;
+      border-radius: 0 0 4px 4px;
+      border: 1px solid @border-color;
+      border-top: none;
+      .sui-transfer-list-item {
+        display: flex;
+        align-items: center;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+        user-select: none;
+        &.is-selected {
+          background: #e6f7ff;
+          color: @primary-color;
+        }
+        &.is-disabled {
+          color: @disabled-color;
+          cursor: not-allowed;
+          background: @bg-color;
+        }
+        &:hover {
+          background: #f5f7fa;
+          color: @primary-color;
+        }
+        .sui-transfer-list-item-label {
+          margin-left: 8px;
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      .sui-transfer-list-empty {
+        color: #bfbfbf;
+        text-align: center;
+        padding: 32px 0;
+      }
+    }
+  }
+  .sui-transfer-operations {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    .sui-btn {
+      min-width: 32px;
+      padding: 0 8px;
+    }
+  }
+} 

@@ -1,0 +1,329 @@
+// 变量定义
+@primary-color: #1890ff;
+@text-color: #262626;
+@text-color-secondary: #8c8c8c;
+@border-color: #d9d9d9;
+@error-color: #ff4d4f;
+
+.sui-table-wrapper {
+  .sui-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+
+    // 尺寸样式
+    &.sui-table-small {
+      .sui-table-thead > tr > th,
+      .sui-table-tbody > tr > td {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+      .sui-table-selection-column {
+        width: 40px;
+      }
+      .sui-table-expand-icon-column {
+        width: 40px;
+      }
+    }
+
+    &.sui-table-middle {
+      .sui-table-thead > tr > th,
+      .sui-table-tbody > tr > td {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+      .sui-table-selection-column {
+        width: 48px;
+      }
+      .sui-table-expand-icon-column {
+        width: 48px;
+      }
+    }
+
+    &.sui-table-large {
+      .sui-table-thead > tr > th,
+      .sui-table-tbody > tr > td {
+        padding: 16px 20px;
+        font-size: 16px;
+      }
+      .sui-table-selection-column {
+        width: 56px;
+      }
+      .sui-table-expand-icon-column {
+        width: 56px;
+      }
+    }
+
+    // 边框样式
+    &.sui-table-bordered {
+      border: 1px solid @border-color;
+      border-right: none;
+
+      .sui-table-thead > tr > th,
+      .sui-table-tbody > tr > td {
+        border-right: 1px solid @border-color;
+      }
+
+      .sui-table-thead > tr > th {
+        border-bottom: 1px solid @border-color;
+      }
+
+      .sui-table-tbody > tr > td {
+        border-bottom: 1px solid @border-color;
+      }
+
+      .sui-table-tbody > tr:last-child > td {
+        border-bottom: none;
+      }
+    }
+
+    // 表头样式
+    .sui-table-thead {
+      background: #fafafa;
+
+      > tr > th {
+        background: #fafafa;
+        border-bottom: 1px solid @border-color;
+        color: @text-color;
+        font-weight: 500;
+        text-align: left;
+        transition: background 0.3s ease;
+        position: relative;
+
+        &:hover {
+          background: #f5f5f5;
+        }
+
+        .sui-table-column-title {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          
+          // 当居中对齐时
+          &[style*="text-align: center"] {
+            justify-content: center;
+          }
+          
+          // 当右对齐时
+          &[style*="text-align: right"] {
+            justify-content: flex-end;
+          }
+        }
+
+        // 排序样式
+        &.sui-table-column-sorter {
+          cursor: pointer;
+
+          .sui-table-column-sorter-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 8px;
+
+            .sui-table-column-sorter-up,
+            .sui-table-column-sorter-down {
+              font-size: 10px;
+              color: #bfbfbf;
+              transition: color 0.3s ease;
+              line-height: 1;
+
+              &.active {
+                color: @primary-color;
+              }
+            }
+
+            .sui-table-column-sorter-up {
+              margin-bottom: 2px;
+            }
+
+            .sui-table-column-sorter-down {
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    // 表格主体样式
+    .sui-table-tbody {
+      > tr {
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #fafafa;
+        }
+
+        &.sui-table-row-selected {
+          background: #e6f7ff;
+
+          &:hover {
+            background: #bae7ff;
+          }
+        }
+
+        &.sui-table-row-striped {
+          background: #fafafa;
+        }
+
+        > td {
+          border-bottom: 1px solid @border-color;
+          transition: background 0.3s ease;
+          word-break: break-word;
+          &.sui-table-empty {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    // 选择列样式
+    .sui-table-selection-column {
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    // 展开列样式
+    .sui-table-expand-icon-column {
+      text-align: center;
+      vertical-align: middle;
+
+      .sui-table-row-expand-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        border: 1px solid @border-color;
+        border-radius: 2px;
+        background: #fff;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-color: @primary-color;
+          color: @primary-color;
+        }
+
+        &.expanded {
+          transform: rotate(90deg);
+        }
+
+        .sui-icon {
+          font-size: 10px;
+        }
+      }
+    }
+
+    // 展开行样式
+    .sui-table-expanded-row {
+      background: #fafafa;
+
+      > td {
+        padding: 16px;
+        border-bottom: 1px solid @border-color;
+      }
+    }
+
+    // 固定列样式
+    .sui-table-cell-fixed-left,
+    .sui-table-cell-fixed-right {
+      position: sticky;
+      background: #fff;
+      z-index: 2;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        pointer-events: none;
+        transition: box-shadow 0.3s ease;
+      }
+    }
+
+    .sui-table-cell-fixed-left {
+      left: 0;
+
+      &::after {
+        right: -30px;
+        box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .sui-table-cell-fixed-right {
+      right: 0;
+
+      &::after {
+        left: -30px;
+        box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    // 加载状态样式
+    .sui-table-loading {
+      text-align: center;
+      padding: 40px 0;
+
+      .sui-table-loading-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: @text-color-secondary;
+
+        .sui-table-loading-icon {
+          font-size: 24px;
+          margin-bottom: 8px;
+          animation: spin 1s linear infinite;
+        }
+
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+
+    // 空数据样式
+    .sui-table-empty {
+      text-align: center;
+      padding: 40px 0;
+    }
+  }
+
+  // 分页样式
+  .sui-table-pagination {
+    margin-top: 16px;
+    text-align: right;
+  }
+}
+
+// 动画
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 响应式样式
+@media (max-width: 768px) {
+  .sui-table-wrapper {
+    .sui-table {
+      font-size: 12px;
+
+      .sui-table-thead > tr > th,
+      .sui-table-tbody > tr > td {
+        padding: 8px 12px;
+      }
+
+      .sui-table-column-sorter-inner {
+        margin-left: 4px;
+      }
+    }
+  }
+} 

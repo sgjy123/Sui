@@ -464,7 +464,7 @@ const ColorPicker = ({
   
   // 判断是否显示清空按钮
   const showClear = allowClear && color;
-
+  
   // 触发器渲染
   let triggerNode;
   if (triggerMode === 'input') {

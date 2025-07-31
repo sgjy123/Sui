@@ -43,6 +43,9 @@ import CascaderDoc from './pages/components/Cascader';
 import DatePickerDoc from './pages/components/DatePicker';
 import TimePickerDoc from './pages/components/TimePicker';
 import ColorPickerDoc from './pages/components/ColorPicker';
+import TransferDoc from './pages/components/Transfer';  
+import UploadDoc from './pages/components/Upload';
+import TableDoc from './pages/components/Table';
 
 const Doc = () => {
     return (
@@ -91,6 +94,9 @@ const Doc = () => {
                     <Route path="datepicker" element={<DatePickerDoc/>}/>
                     <Route path="timepicker" element={<TimePickerDoc/>}/>
                     <Route path="colorpicker" element={<ColorPickerDoc/>}/>
+                    <Route path="transfer" element={<TransferDoc/>}/>
+                    <Route path="upload" element={<UploadDoc/>}/>
+                    <Route path="table" element={<TableDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
