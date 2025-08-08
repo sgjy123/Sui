@@ -65,6 +65,7 @@ const DocIndex = () => {
     { key: '/doc/colorpicker', label: 'ColorPicker 颜色选择器' },
     { key: '/doc/transfer', label: 'Transfer 穿梭框' },
     { key: '/doc/upload', label: 'Upload 上传' },
+    { key: '/doc/treeSelect', label: 'TreeSelect 树选择器' },
     { key: '/doc/table', label: 'Table 表格' },
   ];
 

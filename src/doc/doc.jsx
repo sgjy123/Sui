@@ -45,6 +45,7 @@ import TimePickerDoc from './pages/components/TimePicker';
 import ColorPickerDoc from './pages/components/ColorPicker';
 import TransferDoc from './pages/components/Transfer';  
 import UploadDoc from './pages/components/Upload';
+import TreeSelectDoc from './pages/components/TreeSelect';
 import TableDoc from './pages/components/Table';
 
 const Doc = () => {
@@ -96,6 +97,7 @@ const Doc = () => {
                     <Route path="colorpicker" element={<ColorPickerDoc/>}/>
                     <Route path="transfer" element={<TransferDoc/>}/>
                     <Route path="upload" element={<UploadDoc/>}/>
+                    <Route path="treeSelect" element={<TreeSelectDoc/>}/>
                     <Route path="table" element={<TableDoc/>}/>
                 </Route>
             </Routes>

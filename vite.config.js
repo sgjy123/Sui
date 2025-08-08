@@ -12,7 +12,7 @@ export default defineConfig({
       fileName: (format) => `Sui.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'classnames', '@icon-park/react'],
       output: {
         globals: {
           react: 'React',

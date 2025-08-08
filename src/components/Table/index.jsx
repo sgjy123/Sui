@@ -121,8 +121,8 @@ const Table = ({
     if (column.onCell) {
       const cellProps = column.onCell(record, index);
       return {
-        rowSpan: cellProps?.rowSpan || 1,
-        colSpan: cellProps?.colSpan || 1,
+        rowSpan: cellProps?.rowSpan !== undefined ? cellProps.rowSpan : 1,
+        colSpan: cellProps?.colSpan !== undefined ? cellProps.colSpan : 1,
       };
     }
     return { rowSpan: 1, colSpan: 1 };

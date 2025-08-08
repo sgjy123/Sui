@@ -472,6 +472,131 @@ const TableDemo = () => {
             </div>
           </div>
         </section>
+        
+        {/* 行列合并 */}
+        <section className="sui-doc-section">
+          <h2>行列合并</h2>
+          <p>使用 onCell 属性可以设置单元格的 rowSpan 和 colSpan，实现行列合并。</p>
+          <div className="sui-doc-demo">
+            <div style={{ marginBottom: 16 }}>
+              <h4>行合并</h4>
+              <Table 
+                bordered
+                columns={[
+                  {
+                    title: '部门',
+                    dataIndex: 'department',
+                    key: 'department',
+                    onCell: (record, index) => {
+                      // 同一部门的行进行合并
+                      if (index === 0 || record.department !== mergeDataSource[index - 1].department) {
+                        let rowSpan = 1;
+                        // 计算当前部门有多少行
+                        for (let i = index + 1; i < mergeDataSource.length; i++) {
+                          if (mergeDataSource[i].department === record.department) {
+                            rowSpan++;
+                          } else {
+                            break;
+                          }
+                        }
+                        return { rowSpan };
+                      }
+                      // 被合并的行不显示
+                      return { rowSpan: 0 };
+                    },
+                  },
+                  {
+                    title: '姓名',
+                    dataIndex: 'name',
+                    key: 'name',
+                  },
+                  {
+                    title: '职位',
+                    dataIndex: 'position',
+                    key: 'position',
+                  },
+                ]} 
+                dataSource={mergeDataSource} 
+              />
+            </div>
+            <div style={{ marginBottom: 16 }}>
+              <h4>列合并</h4>
+              <Table 
+                bordered
+                columns={[
+                  {
+                    title: '姓名',
+                    dataIndex: 'name',
+                    key: 'name',
+                  },
+                  {
+                    title: '基本信息',
+                    key: 'info',
+                    colSpan: 2,
+                    dataIndex: 'age',
+                    onCell: (_, index) => {
+                      if (index === 0) {
+                        return { colSpan: 2 };
+                      }
+                      return {};
+                    },
+                    render: (value, record) => `${value}岁，${record.address}`,
+                  },
+                  {
+                    title: '地址',
+                    dataIndex: 'address',
+                    key: 'address',
+                    onCell: (_, index) => {
+                      if (index === 0) {
+                        return { colSpan: 0 };
+                      }
+                      return {};
+                    },
+                  },
+                ]} 
+                dataSource={dataSource.slice(0, 2)} 
+              />
+            </div>
+            <div>
+              <h4>表头合并</h4>
+              <Table 
+                bordered
+                columns={[
+                  {
+                    title: '姓名',
+                    dataIndex: 'name',
+                    key: 'name',
+                    onHeaderCell: () => ({ rowSpan: 2 }),
+                  },
+                  {
+                    title: '个人信息',
+                    colSpan: 2,
+                    onHeaderCell: () => ({ colSpan: 2 }),
+                    dataIndex: 'age',
+                    key: 'age',
+                  },
+                  {
+                    title: '',
+                    dataIndex: 'address',
+                    key: 'address',
+                    onHeaderCell: () => ({ colSpan: 0 }),
+                  },
+                  {
+                    title: '年龄',
+                    dataIndex: 'age',
+                    key: 'age2',
+                  },
+                  {
+                    title: '地址',
+                    dataIndex: 'address',
+                    key: 'address2',
+                  },
+                ]} 
+                dataSource={dataSource} 
+              />
+            </div>
+          </div>
+        </section>
 
         {/* API */}
         <section className="sui-doc-section">
@@ -632,6 +757,18 @@ const TableDemo = () => {
                   <td>render</td>
                   <td>生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引</td>
                   <td>function</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>onCell</td>
+                  <td>设置单元格属性，用于行列合并等</td>
+                  <td>function(record, index)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>onHeaderCell</td>
+                  <td>设置表头单元格属性，用于表头行列合并等</td>
+                  <td>function(columnIndex)</td>
                   <td>-</td>
                 </tr>
               </tbody>

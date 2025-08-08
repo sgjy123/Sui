@@ -42,6 +42,7 @@ import TimePicker from './TimePicker';
 import ColorPicker from './ColorPicker';
 import Transfer from './Transfer';
 import Upload from './Upload';
+import TreeSelect from './TreeSelect';
 import Table from './Table';
 const Row = Grid.Row;
 const Col = Grid.Col;
@@ -93,5 +94,6 @@ export {
   ColorPicker,
   Transfer,
   Upload,
+  TreeSelect,
   Table,
 };

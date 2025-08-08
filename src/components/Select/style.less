@@ -11,17 +11,16 @@
 .sui-select-selection {
   border: 1px solid #d9d9d9;
   border-radius: 4px;
-  padding: 6px 32px 6px 12px;
   background: #fff;
   cursor: pointer;
   position: relative;
   transition: border 0.2s;
-  min-height: 32px;
+  height: 32px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   user-select: none;
-  padding-right: 40px;
+  padding: 6px 40px 6px 12px;
 }
 .sui-select-selection:hover {
   border-color: #409eff;
@@ -129,6 +128,7 @@
   padding-right: 10px;
 }
 .sui-select-tag {
+  height: 100%;
   background: #f0f0f0;
   border-radius: 2px;
   padding: 0 8px;
@@ -136,7 +136,6 @@
   display: flex;
   align-items: center;
   margin-right: 2px;
-  margin-bottom: 2px;
 }
 .sui-select-tag-close {
   margin-left: 4px;
@@ -168,12 +167,12 @@
   padding: 6px 11px 6px 11px;
 }
 .sui-select-large .sui-select-selection {
-  min-height: 40px;
+  height: 40px;
   font-size: 16px;
   padding: 6px 11px 6px 11px;
 }
 .sui-select-small .sui-select-selection {
-  min-height: 24px;
+  height: 24px;
   font-size: 14px;
   padding: 2px 7px 2px 7px;
 }
@@ -225,4 +224,4 @@
   height: 100%;
   line-height: inherit;
   box-sizing: border-box;
-} 
+}

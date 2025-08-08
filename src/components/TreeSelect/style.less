@@ -1,0 +1,348 @@
+.sui-tree-select {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.sui-tree-select-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.sui-tree-select-selection {
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: border 0.2s;
+  height: 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  padding: 6px 40px 6px 12px;
+}
+
+.sui-tree-select-selection:hover {
+  border-color: #409eff;
+}
+
+.sui-tree-select-selection.sui-tree-select-open {
+  border-color: #409eff;
+  box-shadow: 0 0 0 2px rgba(64,158,255,0.1);
+}
+
+.sui-tree-select-placeholder {
+  color: #bfbfbf;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.sui-tree-select-arrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bfbfbf;
+  font-size: 16px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.sui-tree-select-open .sui-tree-select-arrow,
+.sui-tree-select-selection:hover .sui-tree-select-arrow {
+  color: #595959;
+}
+
+.sui-tree-select-clear {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bfbfbf;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: color 0.2s, background 0.2s;
+  background: transparent;
+  padding: 2px;
+}
+
+.sui-tree-select-clear:hover {
+  color: #595959;
+}
+
+.sui-tree-select-has-clear .sui-tree-select-selection {
+  padding-right: 60px;
+}
+
+/* 搜索输入框 */
+.sui-tree-select-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.sui-tree-select-search-input::placeholder {
+  color: #bfbfbf;
+}
+
+/* 标签样式 */
+.sui-tree-select-tags {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-height: 20px;
+  overflow: hidden;
+}
+
+.sui-tree-select-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 0 22px 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  height: 22px;
+  position: relative;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sui-tree-select-tag-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sui-tree-select-tag-rest {
+  background: #f0f0f0;
+  color: #888;
+  border: none;
+  cursor: pointer;
+  max-width: 36px;
+  height: 22px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.sui-tree-select-tag-close {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bfbfbf;
+  cursor: pointer;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.sui-tree-select-tag-close:hover {
+  color: #666;
+}
+
+/* 下拉框样式 */
+.sui-tree-select-dropdown {
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-height: 256px;
+  overflow-y: auto;
+  min-width: 100%;
+  transition: all 0.2s;
+}
+
+.sui-tree-select-dropdown-up {
+  bottom: 100%;
+  top: auto;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.sui-tree-select-dropdown-down {
+  top: 100%;
+  bottom: auto;
+}
+
+.sui-tree-select-empty {
+  padding: 16px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+/* 树节点样式 */
+.sui-tree-select-tree {
+  padding: 4px 0;
+}
+
+.sui-tree-select-node {
+  position: relative;
+}
+
+.sui-tree-select-node-content {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 2px;
+  margin: 0 4px;
+}
+
+.sui-tree-select-node-content:hover {
+  background: #f5f5f5;
+}
+
+.sui-tree-select-node-selected {
+  background: #e6f7ff;
+  color: #1890ff;
+}
+
+.sui-tree-select-node-disabled {
+  color: #bfbfbf;
+  cursor: not-allowed;
+}
+
+.sui-tree-select-node-disabled:hover {
+  background: transparent;
+}
+
+/* 展开/收起按钮 */
+.sui-tree-select-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sui-tree-select-switcher-open {
+  transform: rotate(90deg);
+}
+
+.sui-tree-select-switcher-noop {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+/* 复选框样式 */
+.sui-tree-select-checkbox {
+  margin-right: 8px;
+}
+
+.sui-tree-select-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.sui-tree-select-checkbox input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+}
+
+/* 节点标题 */
+.sui-tree-select-node-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 子节点容器 */
+.sui-tree-select-node-children {
+  margin-left: 0;
+}
+
+/* 尺寸变体 */
+.sui-tree-select-small .sui-tree-select-selection {
+  height: 24px;
+  padding: 2px 24px 2px 8px;
+  font-size: 12px;
+}
+
+.sui-tree-select-small .sui-tree-select-tag {
+  padding: 0 4px;
+  font-size: 11px;
+}
+
+.sui-tree-select-large .sui-tree-select-selection {
+  height: 40px;
+  padding: 8px 32px 8px 12px;
+  font-size: 16px;
+}
+
+.sui-tree-select-large .sui-tree-select-tag {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+/* 滚动条样式 */
+.sui-tree-select-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sui-tree-select-dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.sui-tree-select-dropdown::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sui-tree-select-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .sui-tree-select-dropdown {
+    max-height: 200px;
+  }
+
+  .sui-tree-select-tags {
+    max-height: 60px;
+    overflow-y: auto;
+  }
+}

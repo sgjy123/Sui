@@ -255,6 +255,86 @@ const columns = [
 ];
 ```
 
+## 行列合并
+
+使用 `onCell` 属性可以设置单元格的 `rowSpan` 和 `colSpan`，实现行列合并。
+
+```jsx
+const renderContent = (value, row, index) => {
+  const obj = {
+    children: value,
+    props: {},
+  };
+  if (index === 0) {
+    obj.props.rowSpan = 2; // 第一行的第一列合并两行
+  }
+  if (index === 1) {
+    obj.props.rowSpan = 0; // 第二行的第一列被合并，不显示
+  }
+  return obj;
+};
+
+const columns = [
+  {
+    title: '部门',
+    dataIndex: 'department',
+    key: 'department',
+    onCell: (record, index) => {
+      // 同一部门的行进行合并
+      if (index === 0 || record.department !== mergeDataSource[index - 1].department) {
+        let rowSpan = 1;
+        // 计算当前部门有多少行
+        for (let i = index + 1; i < mergeDataSource.length; i++) {
+          if (mergeDataSource[i].department === record.department) {
+            rowSpan++;
+          } else {
+            break;
+          }
+        }
+        return { rowSpan };
+      }
+      // 被合并的行不显示
+      return { rowSpan: 0 };
+    },
+  },
+  {
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '职位',
+    dataIndex: 'position',
+    key: 'position',
+  },
+];
+
+// 表头合并示例
+const headerColumns = [
+  {
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+    onHeaderCell: () => ({ rowSpan: 2 }), // 表头第一列合并两行
+  },
+  {
+    title: '个人信息',
+    children: [
+      {
+        title: '年龄',
+        dataIndex: 'age',
+        key: 'age',
+      },
+      {
+        title: '地址',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ],
+  },
+];
+```
+
 ## API
 
 ### Table
@@ -288,6 +368,8 @@ const columns = [
 | fixed | 列固定方向 | 'left' \| 'right' | - |
 | sorter | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | function \| boolean | - |
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引 | function(text, record, index) | - |
+| onCell | 设置单元格属性，用于行列合并等 | function(record, index) => ({ rowSpan, colSpan }) | - |
+| onHeaderCell | 设置表头单元格属性，用于表头行列合并等 | function(columnIndex) => ({ rowSpan, colSpan }) | - |
 
 ### pagination
 

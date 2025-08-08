@@ -37,3 +37,4 @@ export { default as Rate} from './components/Rate';
 export { default as Switch} from './components/Switch';
 export { default as Slider} from './components/Slider';
 export { default as Cascader} from './components/Cascader';
+export { default as TreeSelect} from './components/TreeSelect';
