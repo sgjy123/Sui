@@ -22,7 +22,8 @@ const groupOptions = [
 
 const SelectDoc = () => {
   const [value, setValue] = useState();
-  const [multi, setMulti] = useState([]);
+  const [multi, setMulti] = useState(['1','2','3']);
+  const [multiOverflow, setMultiOverflow] = useState(['1','2','3','4']);
   const [groupVal, setGroupVal] = useState();
   const [disabledVal, setDisabledVal] = useState('2');
   const [clearVal, setClearVal] = useState('1');
@@ -62,11 +63,37 @@ const SelectDoc = () => {
 
         <div className="example">
           <h3>多选模式</h3>
-          <p>支持多选，已选项以标签形式展示，可移除。</p>
+          <p>支持多选，已选项以标签形式展示；当空间不足时，末尾以“+N...”合并显示（同 Cascader）。</p>
           <div className="demo">
-            <Select options={options} value={multi} onChange={setMulti} mode="multiple" placeholder="多选" />
+            <Select options={options} value={multi} onChange={setMulti} mode="multiple" maxTagCount={2} placeholder="多选" />
           </div>
-          <pre className="code">{`<Select options={options} value={multi} onChange={setMulti} mode="multiple" placeholder="多选" />`}</pre>
+          <pre className="code">{`<Select options={options} value={multi} onChange={setMulti} mode="multiple" maxTagCount={2} placeholder="多选" />`}</pre>
+        </div>
+
+        <div className="example">
+          <h3>自定义合并占位</h3>
+          <p>可通过 maxTagPlaceholder 自定义“+N”占位的内容。</p>
+          <div className="demo">
+            <Select
+              options={options}
+              value={multiOverflow}
+              onChange={setMultiOverflow}
+              mode="multiple"
+              maxTagCount={2}
+              maxTagPlaceholder={(omitted) => `+${omitted.length} 更多`}
+              placeholder="多选自定义占位"
+            />
+          </div>
+          <pre className="code">{`<Select
+  options={options}
+  value={multiOverflow}
+  onChange={setMultiOverflow}
+  mode="multiple"
+  maxTagCount={2}
+  maxTagPlaceholder={(omitted) => \
+    \\\`+${'${omitted.length}'} 更多\\\`}
+  placeholder="多选自定义占位"
+/>`}</pre>
         </div>
 
         <div className="example">
@@ -268,6 +295,18 @@ const SelectDoc = () => {
               <td>选择模式（单选/多选）</td>
               <td>'single' | 'multiple'</td>
               <td>'single'</td>
+            </tr>
+            <tr>
+              <td>maxTagCount</td>
+              <td>多选模式下最多展示的标签数量，超出以“+N...”合并显示</td>
+              <td>number</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>maxTagPlaceholder</td>
+              <td>自定义合并占位内容，参数为被合并的值数组</td>
+              <td>function(omittedValues: any[])</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>allowClear</td>

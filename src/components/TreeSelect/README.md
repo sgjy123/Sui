@@ -1,6 +1,6 @@
 # TreeSelect 树选择
 
-树型选择控件，支持单选、多选、搜索等功能。
+树型选择控件，支持单选、多选、搜索、复选框等功能。多选模式下已选项采用标签展示，超出可显示数量时以“+N...”的形式汇总显示（同 Cascader）。
 
 ## 何时使用
 
@@ -64,6 +64,7 @@ function App() {
       placeholder="请选择"
       multiple
       allowClear
+      maxTagCount={2}
     />
   );
 }
@@ -126,7 +127,7 @@ function App() {
 | onChange | 选中树节点时调用此函数 | function(value, selectedNodes) | - |
 | placeholder | 选择框默认文字 | string | '请选择' |
 | disabled | 是否禁用 | boolean | false |
-| multiple | 支持多选 | boolean | false |
+| multiple | 支持多选，已选项以标签形式展示 | boolean | false |
 | allowClear | 显示清除按钮 | boolean | false |
 | showSearch | 是否显示搜索框 | boolean | false |
 | filterTreeNode | 是否根据输入项进行筛选，默认用 title 进行匹配 | function(inputValue, treeNode) | - |
@@ -141,8 +142,8 @@ function App() {
 | style | 选择器样式 | object | {} |
 | size | 选择框大小 | 'small' \| 'middle' \| 'large' | 'middle' |
 | showCheckedStrategy | 定义选中项回填的方式 | 'SHOW_ALL' \| 'SHOW_PARENT' \| 'SHOW_CHILD' | 'SHOW_CHILD' |
-| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number | - |
-| maxTagPlaceholder | 隐藏 tag 时显示的内容 | function(omittedValues) | - |
+| maxTagCount | 最多展示的标签数量，超出时以“+N...”合并显示 | number | 2 |
+| maxTagPlaceholder | 自定义合并占位的内容，入参为被合并的 key 列表 | function(omittedKeys: (string\|number)[]) | - |
 
 ### TreeNode Props
 

@@ -186,7 +186,7 @@ const Cascader = ({
                     triggerChange(val, opts);
                   }}
                 >
-                  <Icon name="CloseOne" theme="filled" size={12} />
+                  <Icon name="CloseOne" theme="filled" size={14} />
                 </span>
               </span>
             );

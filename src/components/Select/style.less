@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   user-select: none;
-  padding: 6px 40px 6px 12px;
+  padding: 0 32px 0 6px;
 }
 .sui-select-selection:hover {
   border-color: #409eff;
@@ -119,33 +119,59 @@
 }
 .sui-select-tags {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-  min-width: 0;
-  flex: 1;
-  height: 100%;
-  padding-right: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    min-width: 0;
+    height: 28px;
+    overflow: hidden;
 }
 .sui-select-tag {
-  height: 100%;
-  background: #f0f0f0;
-  border-radius: 2px;
-  padding: 0 8px;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  margin-right: 2px;
+  position: relative;
+    background: #f5f5f5;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 0 22px 0 8px;
+    font-size: 12px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    height: 22px;
+    margin-right: 0;
+}
+.sui-select-tag-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sui-select-tag-rest {
+  background: #f5f5f5;
+  color: #888;
+  border: none;
 }
 .sui-select-tag-close {
-  margin-left: 4px;
-  font-size: 12px;
-  color: #bbb;
-  cursor: pointer;
-  transition: color 0.2s;
+  position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bfbfbf;
+    cursor: pointer;
+    font-size: 12px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: color 0.2s;
+    .icon {
+      display: flex;
+      align-items: center;
+    }
 }
 .sui-select-tag-close:hover {
-  color: #595959;
+  color: #409eff;
 }
 .sui-select-group-label {
   font-size: 12px;
@@ -164,7 +190,6 @@
 .sui-select-middle .sui-select-selection {
   min-height: 32px;
   font-size: 14px;
-  padding: 6px 11px 6px 11px;
 }
 .sui-select-large .sui-select-selection {
   height: 40px;

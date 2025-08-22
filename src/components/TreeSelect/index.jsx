@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './style.less';
 import ReactDOM from 'react-dom';
 import Icon from '../Icon';
+import Checkbox from '../Checkbox';
 
 // 判断节点是否有子节点
 const hasChildren = (node) => {
@@ -102,7 +103,7 @@ const TreeSelect = ({
   treeExpandedKeys,
   onTreeExpand,
   showCheckedStrategy = 'SHOW_CHILD',
-  maxTagCount,
+  maxTagCount = 2,
   maxTagPlaceholder,
 }) => {
   // 受控/非受控
@@ -371,18 +372,28 @@ const TreeSelect = ({
           
           {/* 复选框 */}
           {treeCheckable && (
-            <span className="sui-tree-select-checkbox">
-              <input 
-                type="checkbox" 
-                checked={isSelected}
-                onChange={() => {
-                  // 修复：禁用节点的复选框不应响应变更
-                  if (node.disabled) return;
-                  handleSelect(node);
-                }}
-                disabled={node.disabled}
-              />
-            </span>
+            (() => {
+              let indeterminate = false;
+              if (!node.isLeaf) {
+                const childKeys = getAllChildrenKeys(node, treeData);
+                const selectedKeys = Array.isArray(selected) ? selected : [];
+                const selectedChildCount = childKeys.filter(k => selectedKeys.includes(k)).length;
+                indeterminate = !isSelected && selectedChildCount > 0 && selectedChildCount < childKeys.length;
+              }
+              return (
+                <span className="sui-tree-select-checkbox" onClick={(e) => e.stopPropagation()}>
+                  <Checkbox
+                    checked={isSelected}
+                    indeterminate={indeterminate}
+                    disabled={node.disabled}
+                    onChange={() => {
+                      if (node.disabled) return;
+                      handleSelect(node);
+                    }}
+                  />
+                </span>
+              );
+            })()
           )}
           
           {/* 节点标题 */}
@@ -504,7 +515,7 @@ const TreeSelect = ({
                       handleRemoveTag(tag.key); 
                     }}
                   >
-                    ×
+                    <Icon name="CloseOne" theme="filled" size={14} />
                   </span>
                 </span>
               )
@@ -575,7 +586,7 @@ const TreeSelect = ({
         )}
         {showClear && (
           <span className="sui-tree-select-clear" onClick={handleClear}>
-            <Icon name="CloseOne" theme="filled" size={16} />
+            <Icon name="CloseOne" theme="filled" size={14} />
           </span>
         )}
         <span className="sui-tree-select-arrow">

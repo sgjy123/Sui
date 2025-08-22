@@ -29,6 +29,8 @@ const Select = ({
   showSearch = false,
   filterOption,
   onSearch,
+  maxTagCount = 2,
+  maxTagPlaceholder,
 }) => {
   // 受控/非受控
   const isMultiple = mode === 'multiple';
@@ -242,26 +244,45 @@ const Select = ({
   // 选择框内容渲染
   const renderSelection = () => {
     if (isMultiple) {
-      console.log(selectedOptions,'selectedOptions');
+      // 计算展示标签（溢出+N）
+      const allTags = Array.isArray(selectedOptions)
+        ? selectedOptions.map(opt => ({ key: opt.value, label: opt.label }))
+        : [];
+      const displayTags = !maxTagCount || allTags.length <= maxTagCount
+        ? allTags
+        : (() => {
+            const shown = allTags.slice(0, maxTagCount);
+            const omitted = allTags.slice(maxTagCount);
+            const rest = {
+              key: '__sui_ellipsis__',
+              label: maxTagPlaceholder ? maxTagPlaceholder(omitted.map(t => t.key)) : `+${omitted.length}...`,
+            };
+            return [...shown, rest];
+          })();
+
       return (
         <div className="sui-select-tags" onClick={e => {
           if (showSearch && !disabled) setInputing(true);
         }}>
-          {Array.isArray(selectedOptions) && selectedOptions.length > 0 &&
-            selectedOptions.map(opt => (
-              <span className="sui-select-tag" key={opt.value}>
-                {opt.label}
-                <span className="sui-select-tag-close" onClick={ee => { ee.stopPropagation(); handleRemoveTag(opt.value); }}>×</span>
+          {displayTags.length > 0 && displayTags.map(tag => (
+            tag.key === '__sui_ellipsis__' ? (
+              <span className="sui-select-tag sui-select-tag-rest" key={tag.key}>{tag.label}</span>
+            ) : (
+              <span className="sui-select-tag" key={tag.key}>
+                <span className="sui-select-tag-content">{tag.label}</span>
+                <span className="sui-select-tag-close" onClick={ee => { ee.stopPropagation(); handleRemoveTag(tag.key); }}>
+                  <Icon name="CloseOne" theme="filled" size={14} />
+                </span>
               </span>
-            ))
-          }
+            )
+          ))}
           <input
             className="sui-select-search-input"
             value={showSearch ? searchValue : ''}
             onChange={showSearch ? handleSearchChange : undefined}
             onBlur={() => setInputing(false)}
             autoFocus={showSearch && open}
-            placeholder={(!selectedOptions || selectedOptions.length === 0) && !searchValue ? placeholder : ''}
+            placeholder={(allTags.length === 0) && !searchValue ? placeholder : ''}
             style={{ flex: 1, minWidth: 0, border: 'none', outline: 'none', background: 'transparent', fontSize: 'inherit' }}
             readOnly={!(showSearch && open)}
           />
@@ -354,6 +375,8 @@ Select.propTypes = {
   showSearch: PropTypes.bool,
   filterOption: PropTypes.func,
   onSearch: PropTypes.func,
+  maxTagCount: PropTypes.number,
+  maxTagPlaceholder: PropTypes.func,
 };
 
 export default Select; 

@@ -25,6 +25,7 @@ const treeData = [
 const TreeSelectDoc = () => {
   const [basicValue, setBasicValue] = useState();
   const [multipleValue, setMultipleValue] = useState([]);
+  const [overflowValue, setOverflowValue] = useState(['0-0-0-0','0-0-0-1','0-0-1','0-1']);
   const [searchValue, setSearchValue] = useState();
   const [checkableValue, setCheckableValue] = useState([]);
   const [clearValue, setClearValue] = useState();
@@ -91,13 +92,14 @@ const TreeSelectDoc = () => {
 
         <div className="example">
           <h3>多选模式</h3>
-          <p>支持多选，只选择叶子节点，已选项以标签形式展示。父节点的选择状态通过子节点的选择状态来决定。</p>
+          <p>支持多选，已选项以标签形式展示；当空间不足时，末尾以“+N...”合并显示（同 Cascader）。</p>
           <div className="demo">
             <TreeSelect
               treeData={treeData}
               value={multipleValue}
               onChange={setMultipleValue}
               multiple
+              maxTagCount={2}
               placeholder="请选择多个节点"
               style={{ width: '400px' }}
             />
@@ -107,7 +109,34 @@ const TreeSelectDoc = () => {
   value={multipleValue}
   onChange={setMultipleValue}
   multiple
+  maxTagCount={2}
   placeholder="请选择多个节点"
+  style={{ width: '400px' }}
+/>`}</pre>
+        </div>
+
+        <div className="example">
+          <h3>自定义合并占位</h3>
+          <p>通过 <code>maxTagPlaceholder</code> 自定义“+N”占位的内容。</p>
+          <div className="demo">
+            <TreeSelect
+              treeData={treeData}
+              value={overflowValue}
+              onChange={setOverflowValue}
+              multiple
+              maxTagCount={2}
+              maxTagPlaceholder={(omittedKeys) => `+${omittedKeys.length} 更多`}
+              style={{ width: '400px' }}
+            />
+          </div>
+          <pre className="code">{`<TreeSelect
+  treeData={treeData}
+  value={overflowValue}
+  onChange={setOverflowValue}
+  multiple
+  maxTagCount={2}
+  maxTagPlaceholder={(omittedKeys) => \
+    \\\`+${'${omittedKeys.length}'} 更多\\\`}
   style={{ width: '400px' }}
 />`}</pre>
         </div>
@@ -285,7 +314,7 @@ const treeData = [
             </tr>
             <tr>
               <td>multiple</td>
-              <td>支持多选，只选择叶子节点</td>
+              <td>支持多选；已选项以标签形式展示</td>
               <td>boolean</td>
               <td>false</td>
             </tr>
@@ -312,6 +341,18 @@ const treeData = [
               <td>显示 checkbox</td>
               <td>boolean</td>
               <td>false</td>
+            </tr>
+            <tr>
+              <td>maxTagCount</td>
+              <td>最多展示的标签数量，超出时以“+N...”合并显示</td>
+              <td>number</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>maxTagPlaceholder</td>
+              <td>自定义合并占位内容，参数为被合并的 key 列表</td>
+              <td>function(omittedKeys: (string|number)[])</td>
+              <td>-</td>
             </tr>
             <tr>
               <td>size</td>
