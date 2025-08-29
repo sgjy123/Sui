@@ -44,6 +44,11 @@ import Transfer from './Transfer';
 import Upload from './Upload';
 import TreeSelect from './TreeSelect';
 import Table from './Table';
+import Carousel from './Carousel';
+import Calendar from './Calendar';
+import Tree from './Tree';
+import Image from './Image';
+import FormDescriptions from './FormDescriptions';
 const Row = Grid.Row;
 const Col = Grid.Col;
 
@@ -96,4 +101,9 @@ export {
   Upload,
   TreeSelect,
   Table,
+  Carousel,
+  Calendar,
+  Tree,
+  Image,
+  FormDescriptions,
 };

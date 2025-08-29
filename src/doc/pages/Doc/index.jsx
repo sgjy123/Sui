@@ -67,6 +67,11 @@ const DocIndex = () => {
     { key: '/doc/upload', label: 'Upload 上传' },
     { key: '/doc/treeSelect', label: 'TreeSelect 树选择器' },
     { key: '/doc/table', label: 'Table 表格' },
+    { key: '/doc/carousel', label: 'Carousel 走马灯' },
+    { key: '/doc/calendar', label: 'Calendar 日历' },
+    { key: '/doc/tree', label: 'Tree 树' },
+    { key: '/doc/image', label: 'Image 图片' },
+    { key: '/doc/formDescriptions', label: 'FormDescriptions 表单描述' },
   ];
 
   return (

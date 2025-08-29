@@ -47,6 +47,11 @@ import TransferDoc from './pages/components/Transfer';
 import UploadDoc from './pages/components/Upload';
 import TreeSelectDoc from './pages/components/TreeSelect';
 import TableDoc from './pages/components/Table';
+import CarouselDoc from './pages/components/Carousel';
+import CalendarDoc from './pages/components/Calendar';
+import TreeDoc from './pages/components/Tree';
+import ImageDoc from './pages/components/Image';
+import FormDescriptionsDoc from './pages/components/FormDescriptions';
 
 const Doc = () => {
     return (
@@ -99,6 +104,11 @@ const Doc = () => {
                     <Route path="upload" element={<UploadDoc/>}/>
                     <Route path="treeSelect" element={<TreeSelectDoc/>}/>
                     <Route path="table" element={<TableDoc/>}/>
+                    <Route path="carousel" element={<CarouselDoc/>}/>
+                    <Route path="calendar" element={<CalendarDoc/>}/>
+                    <Route path="tree" element={<TreeDoc/>}/>
+                    <Route path="image" element={<ImageDoc/>}/>
+                    <Route path="formdescriptions" element={<FormDescriptionsDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

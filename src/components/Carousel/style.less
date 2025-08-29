@@ -1,0 +1,108 @@
+.sui-carousel {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.sui-carousel-list {
+	width: 100%;
+	height: 100%;
+}
+
+.sui-carousel-track {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	transition: transform .35s ease;
+}
+
+.sui-carousel-slide {
+	flex: 0 0 100%;
+	width: 100%;
+	user-select: none;
+	position: relative;
+	opacity: 1;
+}
+
+.sui-carousel-fade .sui-carousel-track {
+	transform: none !important;
+	display: block;
+}
+
+.sui-carousel-fade .sui-carousel-slide {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: opacity .3s ease;
+}
+
+.sui-carousel-fade .sui-carousel-slide-active {
+	opacity: 1;
+}
+
+.sui-carousel-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	border: none;
+	background: rgba(0,0,0,.45);
+	color: #fff;
+	cursor: pointer;
+	line-height: 28px;
+	text-align: center;
+	padding: 0;
+	z-index: 2;
+}
+
+.sui-carousel-prev { left: 8px; }
+.sui-carousel-next { right: 8px; }
+
+.sui-carousel-arrow:hover { background: rgba(0,0,0,.6); }
+
+.sui-carousel-dots {
+	position: absolute;
+	margin: 0;
+	padding: 0 8px;
+	list-style: none;
+	display: flex;
+	gap: 8px;
+}
+
+/* position */
+.sui-carousel-dots-bottom { left: 0; right: 0; bottom: 8px; justify-content: center; }
+.sui-carousel-dots-top { left: 0; right: 0; top: 8px; justify-content: center; }
+.sui-carousel-dots-left { left: 8px; top: 0; bottom: 0; flex-direction: column; align-items: center; justify-content: center; }
+.sui-carousel-dots-right { right: 8px; top: 0; bottom: 0; flex-direction: column; align-items: center; justify-content: center; }
+
+/* type: dot */
+.sui-carousel-dots-dot li button {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: none;
+	background: rgba(0,0,0,.25);
+	cursor: pointer;
+	padding: 0;
+}
+.sui-carousel-dots-dot li.active button { background: rgba(0,0,0,.65); }
+
+/* type: bar */
+.sui-carousel-dots-bar li button {
+	width: 18px;
+	height: 4px;
+	border-radius: 2px;
+	border: none;
+	background: rgba(0,0,0,.25);
+	cursor: pointer;
+	padding: 0;
+}
+.sui-carousel-dots-bar li.active button { background: rgba(0,0,0,.65); }
+
+
