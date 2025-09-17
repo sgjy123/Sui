@@ -20,6 +20,7 @@ const Button = ({
   shape = 'default',
   rippleEffect = true,
   onClick,
+  htmlType = 'button',
   ...props
 }) => {
   // 按钮引用
@@ -103,6 +104,7 @@ const Button = ({
       ref={buttonRef}
       className={`${buttonClassName} ${hasOnlyIcon ? 'sui-button-icon-only' : ''}`}
       disabled={disabled}
+      type={htmlType}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       aria-disabled={disabled}
@@ -136,6 +138,7 @@ Button.propTypes = {
   shape: PropTypes.oneOf(['default', 'circle', 'round']),
   rippleEffect: PropTypes.bool,
   onClick: PropTypes.func,
+  htmlType: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
 
 Button.defaultProps = {
@@ -152,6 +155,7 @@ Button.defaultProps = {
   block: false,
   shape: 'default',
   rippleEffect: true,
+  htmlType: 'button',
 };
 
 // 将ButtonGroup作为Button的静态属性导出

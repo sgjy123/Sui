@@ -1,0 +1,127 @@
+.sui-form {
+  width: 100%;
+}
+
+.sui-form-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+}
+
+.sui-form-item {
+  margin-bottom: 16px;
+}
+
+// horizontal 布局：label 与控件横向排列
+.sui-form-horizontal .sui-form-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sui-form-horizontal .sui-form-item-label {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100px; // 默认标签宽度，可被 labelCol 覆盖
+  margin: 0 6px 0 0;
+  justify-content: right;
+  line-height: 32px; // 与中等尺寸控件对齐
+}
+
+.sui-form-lg.sui-form-horizontal .sui-form-item-label {
+  line-height: 40px;
+}
+
+.sui-form-sm.sui-form-horizontal .sui-form-item-label {
+  line-height: 24px;
+}
+
+.sui-form-horizontal .sui-form-item-control {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sui-form-lg .sui-form-item .sui-input input,
+.sui-form-lg .sui-select,
+.sui-form-lg .sui-input-number,
+.sui-form-lg .sui-picker {
+  height: 40px;
+}
+
+.sui-form-item-label {
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+}
+
+// label 对齐控制
+.sui-form-horizontal .sui-form-item-label.sui-form-item-label-left {
+  text-align: left;
+  justify-content: left;
+}
+.sui-form-horizontal .sui-form-item-label.sui-form-item-label-right {
+  text-align: right;
+  justify-content: right;
+}
+
+.sui-form-item-tooltip {
+  display: inline-flex;
+  margin: 0 2px;
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.sui-form-item-required label::before {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  line-height: 1;
+  content: '*';
+}
+
+.sui-form-item-control-input-content {
+  display: inline-flex;
+  width: 100%;
+}
+
+.sui-form-item-explain {
+  min-height: 20px;
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.sui-form-item-explain-error {
+  color: #ff4d4f;
+}
+
+.sui-form-item-has-error .sui-input {
+  border-color: #ff4d4f;
+}
+
+.sui-form-item-extra {
+  margin-top: 4px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+}
+
+.sui-form-sm .sui-input input,
+.sui-form-sm .sui-select,
+.sui-form-sm .sui-input-number,
+.sui-form-sm .sui-picker {
+  height: 24px;
+}
+
+.sui-form .sui-input input {
+  height: 32px;
+}
+
+// 整体禁用态
+.sui-form-disabled {
+  opacity: 0.75;
+}
+
+

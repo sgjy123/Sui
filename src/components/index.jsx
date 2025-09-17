@@ -49,6 +49,7 @@ import Calendar from './Calendar';
 import Tree from './Tree';
 import Image from './Image';
 import FormDescriptions from './FormDescriptions';
+import Form from './Form';
 const Row = Grid.Row;
 const Col = Grid.Col;
 
@@ -106,4 +107,5 @@ export {
   Tree,
   Image,
   FormDescriptions,
+  Form,
 };

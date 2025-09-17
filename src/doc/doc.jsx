@@ -52,6 +52,7 @@ import CalendarDoc from './pages/components/Calendar';
 import TreeDoc from './pages/components/Tree';
 import ImageDoc from './pages/components/Image';
 import FormDescriptionsDoc from './pages/components/FormDescriptions';
+import FormDoc from './pages/components/Form';
 
 const Doc = () => {
     return (
@@ -109,6 +110,7 @@ const Doc = () => {
                     <Route path="tree" element={<TreeDoc/>}/>
                     <Route path="image" element={<ImageDoc/>}/>
                     <Route path="formdescriptions" element={<FormDescriptionsDoc/>}/>
+                    <Route path="form" element={<FormDoc/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

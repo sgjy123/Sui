@@ -72,6 +72,7 @@ const DocIndex = () => {
     { key: '/doc/tree', label: 'Tree 树' },
     { key: '/doc/image', label: 'Image 图片' },
     { key: '/doc/formDescriptions', label: 'FormDescriptions 表单描述' },
+    { key: '/doc/form', label: 'Form 表单' },
   ];
 
   return (
