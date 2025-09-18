@@ -37,7 +37,7 @@ const Password = ({
       style={style}
       suffix={
         <Icon
-          name={visible ? 'Eye' : 'EyeInvisible'}
+          name={visible ? 'PreviewOpen' : 'PreviewClose'}
           onClick={disabled ? undefined : handleToggleVisible}
           style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}
         />
@@ -60,4 +60,4 @@ Password.propTypes = {
   style: PropTypes.object,
 };
 
-export default Password; 
+export default Password;
