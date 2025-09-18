@@ -56,42 +56,53 @@ const useForm = (form) => {
     if (!rules || rules.length === 0) return [];
     const fieldErrors = [];
     for (const rule of rules) {
-      if (rule.required && (value === undefined || value === '' || (Array.isArray(value) && value.length === 0))) {
-        fieldErrors.push(rule.message || '该字段是必填项');
-        if (rule.validateFirst) break;
+      // 支持 rule 为函数（factory）或对象
+      const ruleObj = typeof rule === 'function'
+        ? rule({ getFieldValue, getFieldsValue }) // 传 form helpers 给 factory
+        : rule;
+      if (!ruleObj) continue;
+
+      // 普通同步校验
+      if (ruleObj.required && (value === undefined || value === '' || (Array.isArray(value) && value.length === 0))) {
+        fieldErrors.push(ruleObj.message || '该字段是必填项');
+        if (ruleObj.validateFirst) break;
         continue;
       }
-      if (rule.pattern && value !== undefined && value !== '' && !rule.pattern.test(String(value))) {
-        fieldErrors.push(rule.message || '格式不正确');
-        if (rule.validateFirst) break;
+      if (ruleObj.pattern && value !== undefined && value !== '' && !ruleObj.pattern.test(String(value))) {
+        fieldErrors.push(ruleObj.message || '格式不正确');
+        if (ruleObj.validateFirst) break;
         continue;
       }
-      if (typeof rule.min === 'number' && typeof value === 'string' && value.length < rule.min) {
-        fieldErrors.push(rule.message || `至少 ${rule.min} 个字符`);
-        if (rule.validateFirst) break;
+      if (typeof ruleObj.min === 'number' && typeof value === 'string' && value.length < ruleObj.min) {
+        fieldErrors.push(ruleObj.message || `至少 ${ruleObj.min} 个字符`);
+        if (ruleObj.validateFirst) break;
         continue;
       }
-      if (typeof rule.max === 'number' && typeof value === 'string' && value.length > rule.max) {
-        fieldErrors.push(rule.message || `至多 ${rule.max} 个字符`);
-        if (rule.validateFirst) break;
+      if (typeof ruleObj.max === 'number' && typeof value === 'string' && value.length > ruleObj.max) {
+        fieldErrors.push(ruleObj.message || `至多 ${ruleObj.max} 个字符`);
+        if (ruleObj.validateFirst) break;
         continue;
       }
-      if (typeof rule.validator === 'function') {
+
+      // 自定义 validator：支持两种调用方式
+      if (typeof ruleObj.validator === 'function') {
         try {
-          await rule.validator({
-            field: name,
-            value,
-            getFieldValue,
-            getFieldsValue,
-          });
+          // 情况 A: validator(rule, value) -- antd 风格或 ( _, value )
+          if (ruleObj.validator.length >= 2) {
+            await ruleObj.validator(ruleObj, value);
+          } else {
+            // 情况 B: validator({ field, value, getFieldValue, getFieldsValue })
+            await ruleObj.validator({ field: name, value, getFieldValue, getFieldsValue });
+          }
         } catch (e) {
-          fieldErrors.push(e?.message || rule.message || '校验失败');
-          if (rule.validateFirst) break;
+          fieldErrors.push(e?.message || ruleObj.message || '校验失败');
+          if (ruleObj.validateFirst) break;
         }
       }
     }
     return fieldErrors;
   };
+
 
   const validateFields = async (names) => {
     const fields = names || Object.keys(storeRef.current);
@@ -104,13 +115,16 @@ const useForm = (form) => {
       if (errs.length) allErrors[name] = errs;
     }
     errorsRef.current = allErrors;
-    notifyDependencies([]);
+    // 不再传空数组，改为传 null/undefined，表示“errors 或全局”更新
+    notifyDependencies(null);
+
     if (Object.keys(allErrors).length) {
       const err = { values: { ...storeRef.current }, errorFields: Object.entries(allErrors).map(([name, errors]) => ({ name, errors })) };
       throw err;
     }
     return { values: { ...storeRef.current } };
   };
+
 
   const registerItem = (name, meta) => {
     itemRegistryRef.current[name] = { ...meta };
@@ -293,7 +307,7 @@ const FormItem = ({
     
     const unsubscribe = form.subscribe((changed) => {
       const currentValues = form.getFieldsValue();
-      
+
       // shouldUpdate 优先级最高
       if (shouldUpdate) {
         if (typeof shouldUpdate === 'function') {
@@ -307,17 +321,27 @@ const FormItem = ({
           return forceUpdate((s) => s + 1);
         }
       }
-      
+
       // dependencies 次优先级
       if (Array.isArray(dependencies) && dependencies.length > 0) {
-        if (!changed || changed.length === 0) return;
-        if (changed.some((n) => dependencies.includes(n))) return forceUpdate((s) => s + 1);
+        // 如果 changed 为 falsy（null/undefined/[]），把它当作 errors/全局更新 —— 需要重渲
+        if (!changed || changed.length === 0) {
+          prevValuesRef.current = { ...currentValues };
+          return forceUpdate((s) => s + 1);
+        }
+        // 正常的字段变更通知，只有当 changed 包含依赖字段才触发渲染
+        if (changed.some((n) => dependencies.includes(n))) {
+          prevValuesRef.current = { ...currentValues };
+          return forceUpdate((s) => s + 1);
+        }
         return;
       }
-      
+
       // 默认：任意变化都刷新
+      prevValuesRef.current = { ...currentValues };
       forceUpdate((s) => s + 1);
     });
+
     let unregister;
     if (name) unregister = form.registerItem(name, { rules, required: required || rules?.some((r) => r.required) });
     return () => {
@@ -341,9 +365,16 @@ const FormItem = ({
   const getChild = () => {
     if (!children) return null;
 
-    // 如果是函数，直接调用它（无论是否有 name）
+    // 如果 children 是 function，直接调用并传入 form helpers（让使用方自由控制）
     if (typeof children === 'function') {
-      return children();
+      return children({
+        form,
+        value,
+        errors,
+        getFieldValue: form?.getFieldValue,
+        getFieldsValue: form?.getFieldsValue,
+        setFieldsValue: form?.setFieldsValue,
+      });
     }
 
     // 无 name 的场景（纯展示/布局），允许多个子节点，直接返回
@@ -359,14 +390,20 @@ const FormItem = ({
     if (size && childProps.size === undefined) childProps.size = size;
     if (disabled && childProps.disabled === undefined) childProps.disabled = disabled;
 
+    // 受控绑定：把 value 赋给子组件
     childProps[valuePropName] = value;
+
     const originTrigger = controlChild.props?.[validateTrigger];
-    childProps[validateTrigger] = async (...args) => {
+
+    // 覆盖触发事件（例如 onChange），写值后异步触发校验（不 await）
+    childProps[validateTrigger] = (...args) => {
       const event = args[0];
       let newValue = getValueFromEvent ? getValueFromEvent(...args) : (event && event.target ? event.target[valuePropName] : args[0]);
       if (normalize) newValue = normalize(newValue, value, form?.getFieldsValue?.());
       form?.setFieldsValue?.({ [name]: newValue });
-      await triggerValidate(newValue);
+      // 异步触发校验，不阻塞输入
+      triggerValidate(newValue).catch(() => {});
+      // 保持原有事件行为
       originTrigger?.(...args);
     };
 

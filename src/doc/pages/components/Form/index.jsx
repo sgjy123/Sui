@@ -250,9 +250,9 @@ const FormDemo = () => {
                   ]}
                 />
               </Form.Item>
-                              <Form.Item name="city" label="城市" dependencies={['country']}>
-                  {() => {
-                    const country = form1.getFieldValue('country');
+              <Form.Item name="city" label="城市" dependencies={['country']}>
+                {() => {
+                  const country = form1.getFieldValue('country');
                   const cityOptions = {
                     china: [
                       { label: '北京', value: 'beijing' },
@@ -307,9 +307,9 @@ const FormDemo = () => {
                 dependencies={['type']}
                 rules={[
                   { required: true, message: '请输入值' },
-                                      ({ getFieldValue }) => ({
-                      validator(_, value) {
-                        const type = getFieldValue('type');
+                  {
+                    validator: ({ value, getFieldValue }) => {
+                      const type = getFieldValue('type');
                       if (type === 'email' && value && !/.+@.+\..+/.test(value)) {
                         return Promise.reject(new Error('请输入正确的邮箱格式'));
                       }
@@ -321,31 +321,56 @@ const FormDemo = () => {
                       }
                       return Promise.resolve();
                     },
-                  }),
+                  },
                 ]}
               >
                 <Input placeholder="根据类型输入对应格式" />
               </Form.Item>
             </Form>
           </div>
-          <pre className="code">{`<Form.Item 
-  name="value" 
-  dependencies={['type']}
-  rules={[
-    { required: true, message: '请输入值' },
-    ({ getFieldValue }) => ({
-      validator(_, value) {
-        const type = getFieldValue('type');
-        if (type === 'email' && !/.+@.+\..+/.test(value)) {
-          return Promise.reject(new Error('邮箱格式不正确'));
-        }
-        return Promise.resolve();
-      },
-    }),
-  ]}
->
-  <Input />
-</Form.Item>`}</pre>
+          <pre className="code">
+            {
+              `
+                <Form initialValues={{ type: 'email', value: '' }} form={form2}>
+                  <Form.Item name="type" label="类型">
+                    <Select
+                      style={{ width: 160 }}
+                      options={[
+                        { label: '邮箱', value: 'email' },
+                        { label: '手机', value: 'phone' },
+                        { label: '身份证', value: 'idcard' },
+                      ]}
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    name="value"
+                    label="值"
+                    dependencies={['type']}
+                    rules={[
+                      { required: true, message: '请输入值' },
+                      {
+                        validator: ({ value, getFieldValue }) => {
+                          const type = getFieldValue('type');
+                          if (type === 'email' && value && !/.+@.+\..+/.test(value)) {
+                            return Promise.reject(new Error('请输入正确的邮箱格式'));
+                          }
+                          if (type === 'phone' && value && !/^1[3-9]\d{9}$/.test(value)) {
+                            return Promise.reject(new Error('请输入正确的手机号格式'));
+                          }
+                          if (type === 'idcard' && value && !/^\d{17}[\dXx]$/.test(value)) {
+                            return Promise.reject(new Error('请输入正确的身份证号格式'));
+                          }
+                          return Promise.resolve();
+                        },
+                      },
+                    ]}
+                  >
+                    <Input placeholder="根据类型输入对应格式" />
+                  </Form.Item>
+                </Form>
+              `
+            }
+          </pre>
         </div>
 
         <div className="example">
