@@ -14,8 +14,6 @@ export { default as Alert } from './components/Alert';
 export { default as Drawer } from './components/Drawer';
 export { default as Affix } from './components/Affix';
 export { default as Card } from './components/Card';
-export { default as Row } from './components';
-export { default as Col } from './components';
 export { default as Loading } from './components/Loading';
 export { default as BackTop } from './components/BackTop';
 export { default as Anchor } from './components/Anchor';
@@ -47,3 +45,7 @@ export { default as Tree} from './components/Tree';
 export { default as Image} from './components/Image';
 export { default as FormDescriptions} from './components/FormDescriptions';
 export { default as Form} from './components/Form';
+// 先导入 Grid，再从中解构出 Row 和 Col
+import { default as Grid } from './components/Grid';
+export const Row = Grid.Row;
+export const Col = Grid.Col;
