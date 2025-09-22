@@ -5,10 +5,17 @@ import { resolve } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      }
+    }
+  },
   plugins: [react()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.js'),
+      entry: resolve(__dirname, 'src/index.js'), // 修改入口文件为src/index.js以正确导出组件
       name: 'Sui',
       fileName: (format) => `Sui.${format}.js`,
     },
@@ -19,15 +26,9 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
-        // 为不同格式的输出配置
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') {
-            return 'style.css';
-          }
-          return assetInfo.name;
-        },
       },
     },
+    cssCodeSplit: false, // 禁用CSS代码分割，将所有CSS打包到一个文件中
   },
   resolve: {
     alias: {
