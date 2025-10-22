@@ -1,0 +1,86 @@
+.pub-index {
+  width: 100%;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // 头部横幅
+  .banner {
+    background: linear-gradient(135deg, #1890ff, #0050b3);
+    padding: 120px 0;
+    text-align: center;
+
+    .banner-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+
+  // 特性介绍
+  .features {
+    padding: 60px 0;
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .ant-card {
+      height: 100%;
+    }
+  }
+
+  // 组件概览
+  .components-overview {
+    padding: 60px 0;
+    background-color: #f5f7fa;
+
+    .component-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+
+  // 底部CTA
+  .cta-section {
+    padding: 60px 0;
+
+    .ant-card {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // 响应式设计
+  @media (max-width: 768px) {
+    .banner {
+      padding: 80px 0;
+
+      h1 {
+        font-size: 32px !important;
+      }
+
+      p {
+        font-size: 16px !important;
+      }
+    }
+
+    .features {
+      .container {
+        .ant-row {
+          flex-direction: column;
+          
+          .ant-col {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}

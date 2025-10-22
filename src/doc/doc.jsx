@@ -1,6 +1,7 @@
-import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import DocIndex from './pages/Doc'
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DocIndex from './pages/Doc';
+import PubIndex from './pages/Pub';
 import ButtonDoc from './pages/components/Button';
 import IconDoc from './pages/components/Icon';
 import DividerDoc from './pages/components/Divider';
@@ -22,7 +23,7 @@ import BackTopDoc from './pages/components/BackTop';
 import AnchorDoc from './pages/components/Anchor';
 import StepsDoc from './pages/components/Steps';
 import ModalDoc from './pages/components/Modal';
-import MessageBoxDoc from './pages/components/MessageBox';  
+import MessageBoxDoc from './pages/components/MessageBox';
 import NotificationDoc from './pages/components/Notification';
 import AvatarDoc from './pages/components/Avatar';
 import BadgeDoc from './pages/components/Badge';
@@ -43,7 +44,7 @@ import CascaderDoc from './pages/components/Cascader';
 import DatePickerDoc from './pages/components/DatePicker';
 import TimePickerDoc from './pages/components/TimePicker';
 import ColorPickerDoc from './pages/components/ColorPicker';
-import TransferDoc from './pages/components/Transfer';  
+import TransferDoc from './pages/components/Transfer';
 import UploadDoc from './pages/components/Upload';
 import TreeSelectDoc from './pages/components/TreeSelect';
 import TableDoc from './pages/components/Table';
@@ -55,66 +56,67 @@ import FormDescriptionsDoc from './pages/components/FormDescriptions';
 import FormDoc from './pages/components/Form';
 
 const Doc = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/doc" element={<DocIndex/>}>
-                    <Route path="button" element={<ButtonDoc/>}/>
-                    <Route path="icon" element={<IconDoc/>}/>
-                    <Route path="divider" element={<DividerDoc/>}/>
-                    <Route path="timeline" element={<TimelineDoc/>}/>
-                    <Route path="tooltip" element={<TooltipDoc/>}/>
-                    <Route path="menu" element={<MenuDemo/>}/>
-                    <Route path="space" element={<SpaceDemo/>}/>
-                    <Route path="grid" element={<GridDemo/>}/>
-                    <Route path="breadcrumb" element={<BreadcrumbDemo/>}/>
-                    <Route path="empty" element={<EmptyDoc/>}/>
-                    <Route path="tag" element={<TagDoc/>}/>
-                    <Route path="message" element={<MessageDoc/>}/>
-                    <Route path="alert" element={<AlertDoc/>}/>
-                    <Route path="drawer" element={<DrawerDoc/>}/>
-                    <Route path="affix" element={<AffixDoc/>}/>
-                    <Route path="card" element={<CardDoc/>}/>
-                    <Route path="loading" element={<LoadingDoc/>}/>
-                    <Route path="backtop" element={<BackTopDoc/>}/>
-                    <Route path="anchor" element={<AnchorDoc/>}/>
-                    <Route path="steps" element={<StepsDoc/>}/>
-                    <Route path="modal" element={<ModalDoc/>}/>
-                    <Route path="messagebox" element={<MessageBoxDoc/>}/>
-                    <Route path="notification" element={<NotificationDoc/>}/>
-                    <Route path="avatar" element={<AvatarDoc/>}/>
-                    <Route path="badge" element={<BadgeDoc/>}/>
-                    <Route path="dropdown" element={<DropdownDoc/>}/>
-                    <Route path="collapse" element={<CollapseDoc/>}/>
-                    <Route path="progress" element={<ProgressDoc/>}/>
-                    <Route path="pageheader" element={<PageHeaderDoc/>}/>
-                    <Route path="pagination" element={<PaginationDoc/>}/>
-                    <Route path="input" element={<InputDoc/>}/>
-                    <Route path="select" element={<SelectDoc/>}/>
-                    <Route path="radio" element={<RadioDoc/>}/>
-                    <Route path="checkbox" element={<CheckboxDoc/>}/>
-                    <Route path="inputnumber" element={<InputNumberDoc/>}/>
-                    <Route path="rate" element={<RateDoc/>}/>
-                    <Route path="switch" element={<SwitchDoc/>}/>
-                    <Route path="slider" element={<SliderDoc/>}/>
-                    <Route path="cascader" element={<CascaderDoc/>}/>
-                    <Route path="datepicker" element={<DatePickerDoc/>}/>
-                    <Route path="timepicker" element={<TimePickerDoc/>}/>
-                    <Route path="colorpicker" element={<ColorPickerDoc/>}/>
-                    <Route path="transfer" element={<TransferDoc/>}/>
-                    <Route path="upload" element={<UploadDoc/>}/>
-                    <Route path="treeSelect" element={<TreeSelectDoc/>}/>
-                    <Route path="table" element={<TableDoc/>}/>
-                    <Route path="carousel" element={<CarouselDoc/>}/>
-                    <Route path="calendar" element={<CalendarDoc/>}/>
-                    <Route path="tree" element={<TreeDoc/>}/>
-                    <Route path="image" element={<ImageDoc/>}/>
-                    <Route path="formdescriptions" element={<FormDescriptionsDoc/>}/>
-                    <Route path="form" element={<FormDoc/>}/>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    )
-}
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/pub" element={<PubIndex />} />
+        <Route path="/doc" element={<DocIndex />}>
+          <Route path="button" element={<ButtonDoc />} />
+          <Route path="icon" element={<IconDoc />} />
+          <Route path="divider" element={<DividerDoc />} />
+          <Route path="timeline" element={<TimelineDoc />} />
+          <Route path="tooltip" element={<TooltipDoc />} />
+          <Route path="menu" element={<MenuDemo />} />
+          <Route path="space" element={<SpaceDemo />} />
+          <Route path="grid" element={<GridDemo />} />
+          <Route path="breadcrumb" element={<BreadcrumbDemo />} />
+          <Route path="empty" element={<EmptyDoc />} />
+          <Route path="tag" element={<TagDoc />} />
+          <Route path="message" element={<MessageDoc />} />
+          <Route path="alert" element={<AlertDoc />} />
+          <Route path="drawer" element={<DrawerDoc />} />
+          <Route path="affix" element={<AffixDoc />} />
+          <Route path="card" element={<CardDoc />} />
+          <Route path="loading" element={<LoadingDoc />} />
+          <Route path="backtop" element={<BackTopDoc />} />
+          <Route path="anchor" element={<AnchorDoc />} />
+          <Route path="steps" element={<StepsDoc />} />
+          <Route path="modal" element={<ModalDoc />} />
+          <Route path="messagebox" element={<MessageBoxDoc />} />
+          <Route path="notification" element={<NotificationDoc />} />
+          <Route path="avatar" element={<AvatarDoc />} />
+          <Route path="badge" element={<BadgeDoc />} />
+          <Route path="dropdown" element={<DropdownDoc />} />
+          <Route path="collapse" element={<CollapseDoc />} />
+          <Route path="progress" element={<ProgressDoc />} />
+          <Route path="pageheader" element={<PageHeaderDoc />} />
+          <Route path="pagination" element={<PaginationDoc />} />
+          <Route path="input" element={<InputDoc />} />
+          <Route path="select" element={<SelectDoc />} />
+          <Route path="radio" element={<RadioDoc />} />
+          <Route path="checkbox" element={<CheckboxDoc />} />
+          <Route path="inputnumber" element={<InputNumberDoc />} />
+          <Route path="rate" element={<RateDoc />} />
+          <Route path="switch" element={<SwitchDoc />} />
+          <Route path="slider" element={<SliderDoc />} />
+          <Route path="cascader" element={<CascaderDoc />} />
+          <Route path="datepicker" element={<DatePickerDoc />} />
+          <Route path="timepicker" element={<TimePickerDoc />} />
+          <Route path="colorpicker" element={<ColorPickerDoc />} />
+          <Route path="transfer" element={<TransferDoc />} />
+          <Route path="upload" element={<UploadDoc />} />
+          <Route path="treeSelect" element={<TreeSelectDoc />} />
+          <Route path="table" element={<TableDoc />} />
+          <Route path="carousel" element={<CarouselDoc />} />
+          <Route path="calendar" element={<CalendarDoc />} />
+          <Route path="tree" element={<TreeDoc />} />
+          <Route path="image" element={<ImageDoc />} />
+          <Route path="formdescriptions" element={<FormDescriptionsDoc />} />
+          <Route path="form" element={<FormDoc />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default Doc
+export default Doc;

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { Menu } from 'components';
+import { Menu, Image } from 'components';
+import Logo from './../../../assets/Sui-Design.png';
 import './style.less';
 
 const DocIndex = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   // 处理侧边栏菜单点击事件
   const handleMenuSelect = (key) => {
     navigate(key);
@@ -14,9 +15,9 @@ const DocIndex = () => {
 
   // 顶部导航菜单数据
   const topMenuItems = [
-    { key: '/public', label: '首页' },
+    { key: '/pub', label: '首页' },
+    { key: '/guide', label: '指南' },
     { key: '/doc', label: '组件' },
-    { key: '/guide', label: '指南' }
   ];
 
   // 侧边栏菜单数据
@@ -50,7 +51,7 @@ const DocIndex = () => {
     { key: '/doc/collapse', label: 'Collapse 折叠面板' },
     { key: '/doc/progress', label: 'Progress 进度条' },
     { key: '/doc/pageheader', label: 'PageHeader 页头' },
-    { key: '/doc/pagination', label: 'Pagination 分页' }, 
+    { key: '/doc/pagination', label: 'Pagination 分页' },
     { key: '/doc/input', label: 'Input 输入框' },
     { key: '/doc/select', label: 'Select 下拉框' },
     { key: '/doc/radio', label: 'Radio 单选框' },
@@ -79,10 +80,10 @@ const DocIndex = () => {
     <div className="doc-layout">
       <header className="doc-header">
         <div className="logo">
-          <h1>Sui Design</h1>
+          <Image src={Logo} height={54} preview={false} />
         </div>
         <Menu mode="horizontal" showBorder={false} selectedKeys={[location.pathname]} onSelect={handleMenuSelect}>
-          {topMenuItems.map(item => (
+          {topMenuItems.map((item) => (
             <Menu.Item key={item.key} index={item.key}>
               {item.label}
             </Menu.Item>
@@ -94,12 +95,8 @@ const DocIndex = () => {
         <aside className="doc-sidebar">
           <div className="menu-group">
             <h3>通用</h3>
-            <Menu 
-              mode="vertical" 
-              selectedKeys={[location.pathname]}
-              onSelect={handleMenuSelect}
-            >
-              {sideMenuItems.map(item => (
+            <Menu mode="vertical" selectedKeys={[location.pathname]} onSelect={handleMenuSelect}>
+              {sideMenuItems.map((item) => (
                 <Menu.Item key={item.key} index={item.key}>
                   {item.label}
                 </Menu.Item>
