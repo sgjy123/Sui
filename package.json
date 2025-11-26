@@ -23,7 +23,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "doc": "vite --config vite.doc.config.js",
-    "doc-build": "vite build --config vite.doc.config.js"
+    "doc-build": "vite build --config vite.doc.config.js",
+    "doc-preview": "vite preview --config vite.doc.config.js --outDir doc-dist"
   },
   "dependencies": {
     "@icon-park/react": "^1.4.2",

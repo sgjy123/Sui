@@ -8,6 +8,10 @@ export default defineConfig({
     port: 8888,
     open: '/doc'
   },
+  preview: {
+    port: 8889,
+    open: '/doc'
+  },
   base: '/',
   build: {
     outDir: 'doc-dist'
