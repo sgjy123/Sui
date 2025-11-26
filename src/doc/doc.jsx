@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DocIndex from './pages/Doc';
 import PubIndex from './pages/Pub';
+import GuideIndex from './pages/Guide';
 import ButtonDoc from './pages/components/Button';
 import IconDoc from './pages/components/Icon';
 import DividerDoc from './pages/components/Divider';
@@ -60,6 +61,13 @@ const Doc = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/pub" element={<PubIndex />} />
+        <Route path="/guide/*" element={<GuideIndex />}>
+          <Route index element={<GuideIndex />} />
+          <Route path="introduction" element={<GuideIndex />} />
+          <Route path="quick-start" element={<GuideIndex />} />
+          <Route path="theme" element={<GuideIndex />} />
+          <Route path="server" element={<GuideIndex />} />
+        </Route>
         <Route path="/doc" element={<DocIndex />}>
           <Route path="button" element={<ButtonDoc />} />
           <Route path="icon" element={<IconDoc />} />
