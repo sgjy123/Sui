@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 8888,
-    open: '/doc'
+    open: '/'
   },
   preview: {
     port: 8889,
-    open: '/doc'
+    open: '/'
   },
   base: '/',
   build: {

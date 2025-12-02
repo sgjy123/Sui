@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import DocIndex from './pages/Doc';
 import PubIndex from './pages/Pub';
 import GuideIndex from './pages/Guide';
@@ -60,6 +60,7 @@ const Doc = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate to="/pub" replace />} />
         <Route path="/pub" element={<PubIndex />} />
         <Route path="/guide/*" element={<GuideIndex />}>
           <Route index element={<GuideIndex />} />
